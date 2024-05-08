@@ -27,54 +27,53 @@ Describe the chosen methods here, including why they were selected based on the 
 - **Description:** [Brief description of what this method does]
 - **Source File Location:** [src/main/java/murraco/BubbleSort.java](https://github.com/murraco/sorting-algorithms/blob/master/src/main/java/murraco/BubbleSort.java)
 
-    <details>
-    <summary><strong>Click to view the BubbleSort Source Code:</strong></summary>
+  <details>
+  <summary><strong>Click to view the BubbleSort Source Code:</strong></summary>
 
-    ```java
-    package murraco;
+  ```java
+  package murraco;
 
-    public class BubbleSort {
+  public class BubbleSort {
 
     // Time complexity: average O(n^2) and best O(n) - Space complexity: O(1)
     public static <T extends Comparable<T>> void bubbleSort(T[] arr) {
-        for (int i = 0; i < arr.length - 1; i++) {
+      for (int i = 0; i < arr.length - 1; i++) {
         for (int j = 1; j < arr.length; j++) {
-            if (arr[j].compareTo(arr[j - 1]) < 0) {
+          if (arr[j].compareTo(arr[j - 1]) < 0) {
             T temp = arr[j];
             arr[j] = arr[j - 1];
             arr[j - 1] = temp;
-            }
+          }
         }
-        }
+      }
     }
+  }
+  ```
 
-    }
-    ```
-
-    </details>
+  </details>
 
 - **Test File Location:** [src/test/java/murraco/SortingAlgorithmsTest.java](https://github.com/murraco/sorting-algorithms/blob/master/src/test/java/murraco/SortingAlgorithmsTest.java)
 
-    <details>
-    <summary><strong>Click to view the BubbleSort Test Code:</strong></summary>
+  <details>
+  <summary><strong>Click to view the BubbleSort Test Code:</strong></summary>
 
-    ```java
-    package murraco;
+  ```java
+  package murraco;
 
-    import static org.junit.Assert.assertEquals;
+  import static org.junit.Assert.assertEquals;
 
-    import java.util.Arrays;
+  import java.util.Arrays;
 
-    import org.junit.Test;
+  import org.junit.Test;
 
-    import murraco.BubbleSort;
-    import murraco.Heapsort;
-    import murraco.InsertionSort;
-    import murraco.MergeSort;
-    import murraco.Quicksort;
-    import murraco.SelectionSort;
+  import murraco.BubbleSort;
+  import murraco.Heapsort;
+  import murraco.InsertionSort;
+  import murraco.MergeSort;
+  import murraco.Quicksort;
+  import murraco.SelectionSort;
 
-    public class SortingAlgorithmsTest {
+  public class SortingAlgorithmsTest {
 
     @Test
     public void testBubbleSort() {
@@ -117,64 +116,64 @@ Describe the chosen methods here, including why they were selected based on the 
         Quicksort.quickSort(data);
         assertEquals("[0, 1, 3, 4, 5, 7, 11, 12, 15, 99]", Arrays.toString(data));
     }
-    }
-    ```
+  }
+  ```
 
-    </details>
+  </details>
 
 #### Method 2: Insertion Sort
 
 - **Description:** [Brief description of what this method does]
 - **Source File Location:** [src/main/java/murraco/InsertionSort.java](https://github.com/murraco/sorting-algorithms/blob/master/src/main/java/murraco/InsertionSort.java)
 
-    <details>
-    <summary><strong>Click to view the InsertionSort Source Code:</strong></summary>
+  <details>
+  <summary><strong>Click to view the InsertionSort Source Code:</strong></summary>
 
-    ```java
-    package murraco;
+  ```java
+  package murraco;
 
-    public class InsertionSort {
+  public class InsertionSort {
 
-      // Time complexity: average O(n^2) and best O(n) - Space complexity: O(1)
-      public static <T extends Comparable<T>> void insertionSort(T[] arr) {
-        for (int i = 0; i < arr.length; i++) {
-          T temp = arr[i];
-          int j = i;
-          while (j > 0 && arr[j - 1].compareTo(temp) > 0) {
-            arr[j] = arr[j - 1];
-            j--;
-          }
-          arr[j] = temp;
+    // Time complexity: average O(n^2) and best O(n) - Space complexity: O(1)
+    public static <T extends Comparable<T>> void insertionSort(T[] arr) {
+      for (int i = 0; i < arr.length; i++) {
+        T temp = arr[i];
+        int j = i;
+        while (j > 0 && arr[j - 1].compareTo(temp) > 0) {
+          arr[j] = arr[j - 1];
+          j--;
         }
+        arr[j] = temp;
       }
-
     }
-    ```
 
-    </details>
+  }
+  ```
+
+  </details>
 
 - **Test File Location:** [src/test/java/murraco/SortingAlgorithmsTest.java](https://github.com/murraco/sorting-algorithms/blob/master/src/test/java/murraco/SortingAlgorithmsTest.java)
 
-    <details>
-    <summary><strong>Click to view the InsertionSort Test Code:</strong></summary>
+  <details>
+  <summary><strong>Click to view the InsertionSort Test Code:</strong></summary>
 
-    ```java
-    package murraco;
+  ```java
+  package murraco;
 
-    import static org.junit.Assert.assertEquals;
+  import static org.junit.Assert.assertEquals;
 
-    import java.util.Arrays;
+  import java.util.Arrays;
 
-    import org.junit.Test;
+  import org.junit.Test;
 
-    import murraco.BubbleSort;
-    import murraco.Heapsort;
-    import murraco.InsertionSort;
-    import murraco.MergeSort;
-    import murraco.Quicksort;
-    import murraco.SelectionSort;
+  import murraco.BubbleSort;
+  import murraco.Heapsort;
+  import murraco.InsertionSort;
+  import murraco.MergeSort;
+  import murraco.Quicksort;
+  import murraco.SelectionSort;
 
-    public class SortingAlgorithmsTest {
+  public class SortingAlgorithmsTest {
 
     @Test
     public void testBubbleSort() {
@@ -217,10 +216,10 @@ Describe the chosen methods here, including why they were selected based on the 
         Quicksort.quickSort(data);
         assertEquals("[0, 1, 3, 4, 5, 7, 11, 12, 15, 99]", Arrays.toString(data));
     }
-    }
-    ```
+  }
+  ```
 
-    </details>
+  </details>
 
 ## Coverage Analysis
 
