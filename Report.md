@@ -6,7 +6,7 @@
 
 <details>
   <summary>Click to view team members:</summary>
-  <p><p>Member 1: Elizaveta Rus, 17904982</p>
+  <p><p>Member 1: Elizaveta Rassell, 17904982</p>
   <p>Member 2: Mitchell Pontague, 19126924</p>
   <p>Member 3: Ryan Mackintosh, 21171466</p></p>
 </details>
@@ -247,20 +247,52 @@ Evaluate the existing test methods against the mutants created and provide an op
 
 ## Testing Tool Investigation (10 Marks)
 
-### Chosen Tool: [Tool/Framework Name]
+### Chosen Tool: Cypress
 
-- **Purpose and Functionality:** [Describe the purpose and what the tool can do]
-- **Usage:** [Explain how the tool should be used with general descriptions and examples]
-- **Other Considerations:** [Discuss standards, popularity, etc.]
-- **Recommendation:** [Do you recommend this tool? Why?]
+- **Purpose and Functionality:**
+  Cypress is an all-in-one testing framework designed for modern web application testing. Its primary purpose is to simplify the process of setting up, writing, running, and debugging tests. Unlike many other testing tools, Cypress is built on a new architecture and runs in the same run-loop as the application being tested. This allows Cypress to offer native access to every object without the need for additional drivers or proxies, resulting in more reliable and faster tests.
+
+- **Usage:**
+  Cypress can be installed via npm and integrated directly into a project's development environment. It allows for writing tests in JavaScript. A typical test in Cypress might involve visiting a web page, querying for an element, interacting with that element, and asserting that the application state has changed as expected. Here’s a basic example:
+
+  ```javascript
+  describe('My First Test', () => {
+    it('Does not do much!', () => {
+      expect(true).to.equal(true);
+    });
+  });
+  ```
+
+  This framework is particularly user-friendly for developers already familiar with JavaScript and front-end frameworks.
+
+- **Other Considerations:**
+  Cypress has grown rapidly in popularity and is widely adopted in modern web development environments. It supports end-to-end testing, integration testing, and unit testing. One key consideration is that Cypress only supports JavaScript, which could be a limitation if your development team uses other programming languages. However, its direct access to both the front and back end of web applications allows for powerful and complex testing scenarios that are more difficult to achieve with other tools.
+
+- **Recommendation:**
+  We highly recommend Cypress for teams developing single-page applications and other complex web architectures, particularly those using modern JavaScript frameworks like React, Angular, or Vue. Its ease of use, combined with powerful testing capabilities and fast feedback loops, makes it an excellent tool for both developers and QA engineers aiming to implement rigorous testing practices.
 
 ## Presentation (7 Marks)
 
-Link to presentation slides or include a brief outline of what will be covered in the presentation.
+**Link to presentation slides:** [Insert link to Google Slides, PowerPoint Online, etc.]
+
+**Outline of Presentation:**
+
+- **Introduction to Cypress**
+  - Overview and significance in testing.
+- **Purpose and Functionality**
+  - Detailed discussion on what Cypress is and what it can do.
+- **How to Use Cypress**
+  - Demonstrating setup and simple test examples.
+- **Advantages and Considerations**
+  - Exploring the benefits and potential limitations of using Cypress.
+- **Case Studies**
+  - Examples of successful implementations and the impact on development.
+- **Conclusion and Recommendation**
+  - Summarizing why Cypress might be the right choice for your team or project.
 
 ## Report Summary
 
-Provide a concise summary of your findings and analyses.
+In our investigation of Cypress as a comprehensive testing tool, we found that its integration into development workflows offers substantial benefits in terms of ease of setup, speed of test execution, and the ability to handle both simple and complex test scenarios directly within a developer's main workflow. Cypress’s architecture allows for real-time test running alongside development, providing immediate feedback and drastically reducing debugging time. Although it is limited to JavaScript, this constraint is offset by the efficiency gains and the deep integration with modern web development tools and practices. Based on these findings, we advocate for Cypress as an excellent choice for web application testing, particularly in environments that emphasize rapid development cycles and high-quality user interfaces.
 
 ## Conclusion
 
@@ -269,3 +301,5 @@ Summarize the key points discovered in this assignment and any conclusions drawn
 ## References
 
 List all references used to prepare this report and presentation.
+
+- <https://www.cypress.io/>
