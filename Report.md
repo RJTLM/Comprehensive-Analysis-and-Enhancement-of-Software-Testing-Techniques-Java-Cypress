@@ -28,7 +28,7 @@ Describe the chosen methods here, including why they were selected based on the 
 - **Source File Location:** [src/main/java/murraco/BubbleSort.java](https://github.com/murraco/sorting-algorithms/blob/master/src/main/java/murraco/BubbleSort.java)
 
     <details>
-    <summary><strong>Click to view the BubbleSort source code:</strong></summary>
+    <summary><strong>Click to view the BubbleSort Source Code:</strong></summary>
 
     ```java
     package murraco;
@@ -56,7 +56,7 @@ Describe the chosen methods here, including why they were selected based on the 
 - **Test File Location:** [src/test/java/murraco/SortingAlgorithmsTest.java](https://github.com/murraco/sorting-algorithms/blob/master/src/test/java/murraco/SortingAlgorithmsTest.java)
 
     <details>
-    <summary><strong>Click to view the Sorting Algorithms Test Code:</strong></summary>
+    <summary><strong>Click to view the BubbleSort Test Code:</strong></summary>
 
     ```java
     package murraco;
@@ -122,14 +122,41 @@ Describe the chosen methods here, including why they were selected based on the 
 
     </details>
 
-#### Method 2: [Method Name]
+#### Method 2: Insertion Sort
 
 - **Description:** [Brief description of what this method does]
-- **File Location:** [Relative path in repository]
+- **Source File Location:** [src/main/java/murraco/InsertionSort.java](https://github.com/murraco/sorting-algorithms/blob/master/src/main/java/murraco/InsertionSort.java)
+
+    <details>
+    <summary><strong>Click to view the InsertionSort Source Code:</strong></summary>
+
+    ```java
+    package murraco;
+
+    public class InsertionSort {
+
+      // Time complexity: average O(n^2) and best O(n) - Space complexity: O(1)
+      public static <T extends Comparable<T>> void insertionSort(T[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+          T temp = arr[i];
+          int j = i;
+          while (j > 0 && arr[j - 1].compareTo(temp) > 0) {
+            arr[j] = arr[j - 1];
+            j--;
+          }
+          arr[j] = temp;
+        }
+      }
+
+    }
+    ```
+
+    </details>
+
 - **Test File Location:** [src/test/java/murraco/SortingAlgorithmsTest.java](https://github.com/murraco/sorting-algorithms/blob/master/src/test/java/murraco/SortingAlgorithmsTest.java)
 
     <details>
-    <summary><strong>Click to view the Sorting Algorithms Test Code:</strong></summary>
+    <summary><strong>Click to view the InsertionSort Test Code:</strong></summary>
 
     ```java
     package murraco;
@@ -201,11 +228,11 @@ Describe the chosen methods here, including why they were selected based on the 
 
 Include diagrams and descriptions of the converted method graphs here.
 
-#### Graph for Method 1
+#### Graph for Method 1: BubbleSort
 
-![Graph Image](path/to/graph1.png)
+![BubbleSort Graph Image](Content\BubbleFlowChart.png)
 
-#### Graph for Method 2
+#### Graph for Method 2: InsertionSort
 
 ![Graph Image](path/to/graph2.png)
 
@@ -213,20 +240,106 @@ Include diagrams and descriptions of the converted method graphs here.
 
 Discuss your prime path coverage analysis for each method.
 
-#### Method 1
+## Method 1: BubbleSort Test Coverage Analysis
 
-#### Method 2
+### Test Requirements (TR)
+
+#### Level 0 (L0)
+
+- [1]
+- [2]
+- [5]
+- [3]
+- [4]
+
+#### Level 1 (L1)
+
+- [1,2]
+- [1,5]
+- [2,1]
+- [2,3]
+- [3,4]
+- [3,2]
+- [4,2]
+
+#### Level 2 (L2)
+
+- [1,2,1]
+- [1,2,3]
+- [1,5]
+- [2,1,2]
+- [2,1,5]
+- [2,3,4]
+- [2,3,2]
+- [3,4,2]
+- [3,2,1]
+- [3,2,3]
+- [4,2,1]
+- [4,2,3]
+
+### Simple Paths
+
+- [1,2]
+- [1,5]
+- [2,1]
+- [2,3]
+- [3,4]
+- [3,2]
+- [4,2]
+- [1,2,1]
+- [1,2,3]
+- [2,1,2]
+- [2,1,5]
+- [2,3,4]
+- [2,3,2]
+- [3,4,2]
+- [3,2,1]
+- [3,2,3]
+- [4,2,1]
+- [4,2,3]
+- [1,2,3,4]
+- [2,3,4,2]
+- [3,4,2,1]
+- [3,4,2,3]
+- [3,2,1,5]
+- [4,2,1,5]
+- [4,2,3,4]
+- [3,4,2,1,5]
+
+### Prime Paths
+
+- [3,4,2,1,5]
+- [2,3,4,2]
+- [1,2,3,4]
+- [3,4,2,3]
+- [4,2,3,4]
+- [3,2,1,5]
+- [2,1,2]
+- [1,2,1]
+- [2,3,2]
+- [3,2,3]
+
+### Test Paths for Prime Path Coverage
+
+| Test Paths                  | Test Requirements                                   |
+|-----------------------------|-----------------------------------------------------|
+| [1,2,3,2,3,2,1,5]           | [2,1,2], [1,2,1]                                    |
+| [1,2,3,4,2,3,4,2,1,5]       | [3,4,2,1,5], [2,3,4,2], [1,2,3,4], [3,4,2,3], [4,2,3,4] |
+| [1,2,3,4,2,3,2,1,5]         | [2,3,4,2], [1,2,3,4], [3,4,2,3], [3,2,1,5], [2,3,2]   |
+| [1,2,3,2,3,2,1,5]           | [3,2,1,5], [2,3,2], [3,2,3]                          |
+
+#### Method 2: InsertionSort
 
 ### Syntax-Based Testing Analysis (10 Marks)
 
 Discuss the creation of mutants, mutation operators used, and the analysis of Reachability, Infection, and Propagation conditions.
 
-#### Mutants for Method 1
+#### Mutants for Method 1: BubbleSort
 
 - **Mutant 1:** [Description]
 - **Mutant 2:** [Description]
 
-#### Mutants for Method 2
+#### Mutants for Method 2: InsertionSort
 
 - **Mutant 1:** [Description]
 - **Mutant 2:** [Description]
@@ -235,12 +348,12 @@ Discuss the creation of mutants, mutation operators used, and the analysis of Re
 
 Evaluate the existing test methods against the mutants created and provide an opinion on the sufficiency of the tests.
 
-### Analysis for Test Method 1
+### Analysis for Test Method 1: BubbleSort
 
 - **Observations:** [Your observations]
 - **Sufficiency of Testing:** [Your judgment]
 
-### Analysis for Test Method 2
+### Analysis for Test Method 2: InsertionSort
 
 - **Observations:** [Your observations]
 - **Sufficiency of Testing:** [Your judgment]
