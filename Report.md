@@ -357,207 +357,188 @@ Evaluate the existing test methods against the mutants created and provide an op
 - **Observations:** [Your observations]
 - **Sufficiency of Testing:** [Your judgment]
 
-# Testing Tool Investigation (10 Marks)
+## Testing Tool Investigation (10 Marks)
 
-## Chosen Tool: Cypress
+## Chosen Tool: [Cypress](https://cypress.io)
 
-Cypress is primarily designed for developers and quality assurance (QA) engineers who are involved in building and testing modern web applications. It's particularly well-suited for the following groups and scenarios:
+### Introduction
 
-1. **JavaScript Developers**: Cypress is built for and uses JavaScript exclusively for writing tests. This makes it ideal for developers and teams already using JavaScript as their main programming language, as it allows them to write tests in a language they are familiar with.
-
-2. **Front-end Developers**: Since Cypress is tailored for testing web applications, front-end developers, particularly those working with modern JavaScript frameworks like React, Angular, or Vue.js, find it highly beneficial. Cypress integrates seamlessly with these frameworks, making it easy to test applications as they are built.
-
-3. **Full-stack Developers**: Cypress not only handles front-end testing but also allows for testing server responses and APIs directly from the browser. This makes it a useful tool for full-stack developers looking to perform end-to-end testing.
-
-4. **DevOps and CI/CD Pipelines**: Cypress supports Continuous Integration/Continuous Deployment processes, providing features that make it straightforward to integrate into automated testing pipelines. Teams practicing DevOps can use Cypress to automate their testing workflows, ensuring that tests are run automatically whenever changes are made to the codebase.
-
-5. **Quality Assurance Teams**: QA teams looking for a robust testing tool that can handle complex user interactions and simulate real user behavior will find Cypress valuable. Its ability to run tests in a real browser environment allows testers to see exactly what users will see, helping to identify and fix issues more effectively.
-
-6. **Teams Emphasizing Test-driven Development (TDD)**: Cypress facilitates TDD practices by making it simple to write and run tests before implementing functionality. This approach helps ensure that the development process leads to robust and bug-free software.
-
-7. **Projects Requiring Detailed Test Reporting**: Cypress provides rich, interactive test reports that make debugging easier. Teams that need comprehensive reporting to analyze test outcomes will benefit from Cypress's detailed logs and visual test command execution.
-
-Overall, while Cypress is particularly favored by those using JavaScript, its broad capabilities make it suitable for a wide range of web development and testing tasks across different team roles and project types. It’s a versatile choice that aligns well with contemporary web development and testing standards.
-
-## Comparison
-
-Cypress is a popular tool for web application testing, and it faces competition from several other well-established testing frameworks. Here are three of the main rivals of Cypress, along with a comparison of their pros and cons in relation to Cypress:
-
-1. **Selenium**
-2. **Puppeteer**
-3. **Playwright**
-
-Here's a table comparing Cypress with these top three rivals:
-
-| Feature/Tool   | Cypress                                                 | Selenium                                               | Puppeteer                                              | Playwright                                             |
-|----------------|---------------------------------------------------------|--------------------------------------------------------|--------------------------------------------------------|--------------------------------------------------------|
-| **Language Support** | JavaScript only                                         | Supports multiple languages (Java, C#, Ruby, Python)   | JavaScript only                                        | JavaScript, Python, C#, and Java                       |
-| **Architecture** | Runs inside the browser; direct access to DOM           | Operates outside the browser; uses drivers             | Operates outside the browser; uses Chrome DevTools Protocol | Uses browser contexts for parallel testing; uses CDP   |
-| **Ease of Setup** | Very easy to set up and use                              | Complex setup involving drivers and grid configurations | Easy to set up, especially for Chrome                  | Similar to Puppeteer but supports multiple browsers    |
-| **Execution Speed** | Fast due to running in the same loop as the application | Can be slower due to HTTP requests to browser drivers   | Very fast execution in Chrome                           | Fast, supports parallel testing across browsers        |
-| **Browser Support** | Limited to Chrome, Firefox, and Edge                     | Wide support for almost all browsers                    | Chrome and Chromium-based browsers only                | Wide support, including Chrome, Firefox, and Safari    |
-| **Use Case**  | Best for end-to-end testing of SPA and modern web apps   | Suitable for cross-browser testing and legacy applications | Ideal for quick scripting and scraping in Chrome       | Suitable for end-to-end testing and cross-browser needs |
-| **Community and Ecosystem** | Growing rapidly; extensive plugins                   | Very large; mature ecosystem                            | Growing, especially among developers needing Chrome-specific tests | Rapidly growing; benefits from being newer and learning from predecessors |
-| **Testing Capabilities** | Limited to what can be executed in a browser            | Comprehensive; can test any web application             | Primarily focused on headless browser testing           | Comprehensive; integrates best features of both Puppeteer and Selenium |
-
-### Pros and Cons Comparison
-
-- **Cypress**
-  - **Pros:**
-    - Direct access to DOM and application's JavaScript
-    - Real-time reloads and test execution
-    - Simplified debugging with automatic waiting and command log
-  - **Cons:**
-    - Only supports JavaScript
-    - Limited to testing in Chrome, Firefox, and Edge
-    - Not suitable for multi-domain management within tests
-
-- **Selenium**
-  - **Pros:**
-    - Supports a wide range of programming languages
-    - Extensive browser support
-    - Well-established, with a vast amount of resources and integrations
-  - **Cons:**
-    - Requires setup of browser drivers and potentially complex grid configurations
-    - Generally slower test execution due to its architecture
-    - Can be overcomplex for simple projects
-
-- **Puppeteer**
-  - **Pros:**
-    - Fast execution for tests in Chrome or Chromium
-    - Ideal for tasks requiring direct browser control like PDF generation or scraping
-    - Simple API focused on Chrome automation
-  - **Cons:**
-    - Limited to Chrome and Chromium-based browsers
-    - Not designed for cross-browser testing
-    - Less suitable for non-technical users due to API complexity
-
-- **Playwright**
-  - **Pros:**
-    - Supports multiple languages and browsers, including mobile versions
-    - Designed for fast and reliable execution across browser types
-    - Offers features like video recording out-of-the-box
-  - **Cons:**
-    - Newer and less mature compared to Selenium
-    - Smaller community, though rapidly growing
-    - Potentially redundant if projects are committed to a single browser environment
-
-Each tool has its strengths and ideal use cases, so the choice between Cypress and its rivals depends largely on specific project requirements, such as the programming languages in use, required browser support, and the complexity of the testing needs.
+Cypress is a a popular **JavaScript-based end-to-end testing framework** developed specifically for the needs of modern **web application testing**. Cypress **integrates with other tools and frameworks** (e.g. Mocha), but also works well as a standalone framework.It's uniquely built to simplify every aspect of testing—from setup to debugging—by running in the same execution cycle as the application under test. This approach not only **enhances test reliability and speed** but also **integrates seamlessly with development workflows** (Cypress.io, 2024).
 
 ### Purpose and Functionality
 
-Cypress is a state-of-the-art testing framework developed specifically for the needs of modern web application testing. Its design philosophy focuses on simplifying every aspect of testing web applications, including setup, test writing, execution, and debugging. Unlike traditional testing tools that operate outside the browser or through remote commands, Cypress executes in the same run-loop as the application. This unique approach eliminates the complexities associated with remote driving of a browser, which enhances test accuracy and execution speed dramatically.
-
-Cypress is engineered to handle both simple and complex testing scenarios, offering full native access to the DOM and all related objects without the need for third-party drivers or proxies. This direct access is pivotal for creating reliable and rapid tests that can interact with the application as users do.
+Cypress is designed to handle both simple and complex testing scenarios with full **native access** to the Document Object Model (DOM) and all related objects. This **direct access eliminates the need for third-party drivers or proxies**, allowing tests to **interact with the application as a user would** (Cypress.io, 2024).
 
 ### Usage
 
-Installing Cypress is straightforward, requiring only a few commands to integrate it into any existing web project via npm. It is particularly well-suited for JavaScript developers due to its API and syntax, which are intuitive for those with JavaScript experience.
+Installing Cypress requires just a few commands via the Node Package Manager (npm), integrating **directly into any web project**. It's particularly **suited for JavaScript developers**, providing an intuitive **API** and **syntax** (Cypress.io, 2024).
 
-A typical Cypress test involves several key actions: navigating to a webpage, selecting elements to interact with, performing actions like clicking or typing, and verifying the outcomes through assertions. These actions mimic real user interactions, making Cypress ideal for end-to-end testing.
+#### Basic Example Test: Login Form
 
-**Basic Example Test:**
+<details>
+  <summary><strong>Click to view the Login Form Test Code:</strong></summary>
 
 ```javascript
-describe('My First Test', () => {
-  it('Checks for the presence of an element', () => {
-    cy.visit('https://example.com');
-    cy.get('.important-element').should('be.visible');
+describe('Login Form', () => {
+  it('successfully logs in the user', () => {
+    // Visit the login page
+    cy.visit('https://example.com/login');
+
+    // Type in the username and password fields
+    cy.get('input[name=username]').type('user@example.com');
+    cy.get('input[name=password]').type('password123');
+
+    // Click the login button
+    cy.get('button[type=submit]').click();
+
+    // Check the URL to be redirected to the dashboard
+    cy.url().should('include', '/dashboard');
+
+    // Optional: Verify the presence of an element that is only visible when logged in
+    cy.get('.welcome-message').should('contain', 'Welcome, user!');
   });
 });
 ```
 
-**Detailed Example Test:**
+This example demonstrates how you might write a Cypress test to check the functionality of a login form on a web application. The test will navigate to the login page, enter credentials, submit the form, and verify that the login was successful based on the expected URL change.
+
+Cypress operates entirely within the browser and does not require any external drivers or servers to run. This test showcases how Cypress alone can handle:
+
+- Navigation
+- DOM querying
+- Interaction (clicks, typing)
+- Assertions to verify states and contents
+
+By utilising Cypress's rich API for handling HTTP requests, manipulating cookies, and interacting with local storage, you can extend such tests to include more complex scenarios like handling authentication tokens or testing different user roles.
+
+This approach ensures that Cypress can fully manage and execute sophisticated end-to-end tests without the need for additional testing frameworks or tools.
+
+</details>
+
+### Detailed Example Test: Multi-Step Registration Form
+
+<details>
+  <summary><strong>Click to view the Multi-Step Registration Form Test Code:</strong></summary>
 
 ```javascript
-describe('Product Purchase Test', () => {
-  it('Allows a user to purchase a product', () => {
-    cy.visit('https://example-store.com');
-    cy.get('#product-list').find('.add-to-cart').first().click();
-    cy.get('#cart').click();
-    cy.get('checkout-button').click();
-    cy.get('#payment-info').type('4111111111111111');
-    cy.get('#submit-payment').click();
-    cy.contains('Thank you for your purchase!').should('be.visible');
+describe('Multi-Step Registration Form', () => {
+  it('successfully registers a new user', () => {
+    // Visit the registration page
+    cy.visit('https://example.com/register');
+
+    // Step 1: Enter personal details
+    cy.get('input[name=firstName]').type('John');
+    cy.get('input[name=lastName]').type('Doe');
+    cy.get('input[name=email]').type('john.doe@example.com');
+    cy.get('button.next').click();
+
+    // Step 2: Enter address details
+    cy.get('input[name=address]').type('1234 Elm Street');
+    cy.get('input[name=city]').type('Metropolis');
+    cy.get('select[name=state]').select('New York');
+    cy.get('input[name=zip]').type('12345');
+    cy.get('button.next').click();
+
+    // Step 3: Set username and password
+    cy.get('input[name=username]').type('john_doe');
+    cy.get('input[name=password]').type('secure12345');
+    cy.get('button[type=submit]').click();
+
+    // Verify that the registration was successful based on the expected confirmation message
+    cy.contains('Please check your email to activate your account').should('be.visible');
+
+    // Optional: Check for an API call that sends a confirmation email
+    cy.intercept('POST', '/api/send-confirmation-email').as('confirmationEmail');
+    cy.wait('@confirmationEmail').its('response.statusCode').should('eq', 200);
   });
 });
 ```
 
-These examples demonstrate how Cypress tests are structured and executed, reflecting real user interactions within a web application, from visiting pages to completing transactions.
+This example demonstrates how you might write a Cypress test to check the functionality of a multi-step registration form on a web application. The test will navigate to the registration page, enter user details, handle form validations, navigate through multiple steps, and finally verify registration by checking for a confirmation email.
+
+Cypress facilitates comprehensive testing of complex web application functionalities like multi-step forms, including:
+
+- **Navigation and Interaction**: Managing complex user flows through different stages of a form.
+- **Advanced Assertions**: Ensuring that each step is completed successfully and the final confirmation is received.
+- **Network Requests**: Intercepting and asserting on network requests to validate backend processes like sending confirmation emails.
+
+This approach highlights Cypress's ability to handle sophisticated end-to-end tests, providing real-time feedback and robust debugging capabilities. It showcases how effectively Cypress integrates into modern web development workflows, making it a powerful tool for ensuring application reliability and user satisfaction.
+</details>
 
 ### Other Considerations
 
-Cypress's rapid growth in popularity is due in part to its robust community and extensive documentation, which supports new users and seasoned developers alike. Its focus on JavaScript, while highly beneficial in JavaScript-centric development environments, can be a limitation in diverse development contexts where multiple programming languages are used.
+While Cypress's rapid adoption in the developer community and its extensive plugin ecosystem offer substantial advantages, there are several considerations that teams should evaluate before choosing it as their primary testing tool:
 
-Furthermore, Cypress offers a range of plugins and integrations that enhance its capabilities, including visual testing, accessibility checks, and integration with Continuous Integration/Continuous Deployment (CI/CD) pipelines, making it a versatile tool for modern software development practices.
+1. **Single Language Support**: Cypress is built exclusively for JavaScript. This tight integration allows for robust features and an intuitive testing experience for JavaScript developers. However, this can also be a limitation for teams working in multi-language environments or those that prefer using languages like Python, Ruby, or Java for their testing frameworks. Teams should consider their project's language alignment and developer expertise when choosing a testing tool (Cypress.io, 2024).
+
+2. **Specific Browser Compatibility**: Cypress supports testing in Chrome, Firefox, Edge, and Brave directly. While this covers a significant portion of web users, the lack of support for browsers like Safari or Internet Explorer might be a constraint for projects requiring broad browser compatibility, especially those targeting diverse user demographics or corporate environments still using older browsers (Cypress.io, 2024).
+
+3. **Community and Documentation**:
+   - **Robust Community and Resources**: Cypress benefits from a strong and active community. Its extensive documentation, active forums, and numerous plugins enhance its functionality and ease of use. This strong community support is invaluable for troubleshooting, sharing best practices, and continuous learning, making Cypress a top choice for teams that value community engagement.
+   - **Plugin Ecosystem**: The availability of a wide range of plugins can extend Cypress's capabilities beyond basic testing scenarios. These plugins include integrations for accessibility testing, visual regression testing, and more, allowing teams to adapt the tool to their specific needs (Cypress.io Documentation, 2024).
+
+4. **Performance and Real-Time Testing**:
+   - **Fast Execution Within the Browser**: Because Cypress tests run in the same loop as the application, test execution is generally faster and less prone to synchronisation issues compared to tools that operate outside the browser. This can lead to more efficient test cycles, especially during development phases.
+   - **Real-Time Feedback**: The Cypress Test Runner provides visual feedback and step-by-step test execution, which is a significant advantage during test development and debugging. Developers can see exactly what happens at each step of their test and quickly identify where things go wrong (Cypress.io, 2024).
+
+5. **Architectural Considerations**:
+   - **Native Access to Application Code**: Cypress operates within the application context, allowing for deeper integration with the application being tested. This native access facilitates more complex interactions and state management within tests, providing a more thorough testing experience.
+   - **Test Isolation and Control**: While Cypress provides excellent control over test execution and environment setup, its model of clearing the state between tests ensures test independence and reliability. However, managing state across tests can sometimes require additional setup or use of workarounds, particularly for complex state persistence scenarios.
+
+6. **Ease of Integration**: Cypress is straightforward to integrate into existing JavaScript projects and plays well with various build systems and CI/CD pipelines. However, teams need to consider the integration overhead if they are migrating from another testing framework or integrating with non-JavaScript parts of their tech stack (Cypress.io, 2024).
+
+These considerations should be weighed carefully against the specific requirements and constraints of a project to determine if Cypress is the most suitable testing tool for its needs. It excels in environments that can leverage its strengths—JavaScript-centric development, need for rapid testing feedback, and robust community support—but might present challenges in more diverse tech ecosystems or where extensive cross-browser testing is crucial.
 
 ### Recommendation
 
-Given its comprehensive feature set, ease of use, and strong community support, Cypress is highly recommended for teams engaged in developing interactive, dynamic web applications, especially those using modern frameworks like React, Angular, or Vue. Its ability to streamline the testing process, from development to production, makes it an invaluable tool for enhancing software quality and reliability.
+Cypress is highly recommended for teams engaged in developing interactive, dynamic web applications, particularly those using modern JavaScript frameworks such as React, Angular, or Vue. It is especially beneficial for projects that prioritise rapid development cycles and high-quality user interfaces.
 
-## Conclusion
+## Presentation Slides: [Cypress Presentation](https://docs.google.com/presentation/d/1OJ3w1Cg5ZIx3QzN5xrCNtzn1N7iBUIDgB34kDIbDSPk/edit?usp=sharing)
 
-Cypress stands out in the landscape of web application testing tools for its innovative approach and powerful capabilities. It not only simplifies the testing process but also enhances the quality and reliability of web applications. Our detailed investigation supports Cypress's adoption for teams aiming to integrate efficient and effective testing practices into their development cycles, ensuring high-quality user experiences and robust application performance.
+### Comparative Analysis with Rivals
 
----
+<details>
+  <summary><strong>NOTE: This analysis was discussed in the presentation and provided here for informational purposes only.</strong></summary>
 
-This expanded content should provide a more detailed and comprehensive report, suitable for filling two pages with more in-depth analysis and examples, which will be beneficial for your assignment submission.
+| Feature/Tool               | Cypress         | Selenium        | Puppeteer       | Playwright      |
+|----------------------------|-----------------|-----------------|-----------------|-----------------|
+| **Language Support**       | ✔ (JavaScript)  | ✔ (Multi-lang)  | ✔ (JavaScript)  | ✔ (Multi-lang)  |
+| **Architecture**           | ✔ (Internal)    | (External)      | (External)      | ✔ (Internal)    |
+| **Ease of Setup**          | ✔               |                 | ✔               | ✔               |
+| **Execution Speed**        | ✔               |                 | ✔               | ✔               |
+| **Browser Support**        |                 | ✔               |                 | ✔               |
+| **Use Case**               | ✔               |                 |                 | ✔               |
+| **Community and Ecosystem**| ✔               | ✔               |                 | ✔               |
+| **Testing Capabilities**   |                 | ✔               |                 | ✔               |
 
-## Testing Tool Investigation (10 Marks)
+### Pros and Cons Comparison
 
-### Chosen Tool: Cypress
+#### Cypress
 
-- **Purpose and Functionality:**
-  Cypress is an all-in-one testing framework designed for modern web application testing. Its primary purpose is to simplify the process of setting up, writing, running, and debugging tests. Unlike many other testing tools, Cypress is built on a new architecture and runs in the same run-loop as the application being tested. This allows Cypress to offer native access to every object without the need for additional drivers or proxies, resulting in more reliable and faster tests.
+- **Pros:** Direct access to DOM, real-time test execution, simplified debugging.
+- **Cons:** Limited language and browser support, not suited for multi-domain management.
 
-- **Usage:**
-  Cypress can be installed via npm and integrated directly into a project's development environment. It allows for writing tests in JavaScript. A typical test in Cypress might involve visiting a web page, querying for an element, interacting with that element, and asserting that the application state has changed as expected. Here’s a basic example:
+#### Selenium
 
-  ```javascript
-  describe('My First Test', () => {
-    it('Does not do much!', () => {
-      expect(true).to.equal(true);
-    });
-  });
-  ```
+- **Pros:** Supports multiple languages, extensive browser support, mature ecosystem.
+- **Cons:** Complex setup, slower execution.
 
-  This framework is particularly user-friendly for developers already familiar with JavaScript and front-end frameworks.
+#### Puppeteer
 
-- **Other Considerations:**
-  Cypress has grown rapidly in popularity and is widely adopted in modern web development environments. It supports end-to-end testing, integration testing, and unit testing. One key consideration is that Cypress only supports JavaScript, which could be a limitation if your development team uses other programming languages. However, its direct access to both the front and back end of web applications allows for powerful and complex testing scenarios that are more difficult to achieve with other tools.
+- **Pros:** Fast execution in Chrome, ideal for direct browser control tasks.
+- **Cons:** Limited to Chrome, not designed for cross-browser testing.
 
-- **Recommendation:**
-  We highly recommend Cypress for teams developing single-page applications and other complex web architectures, particularly those using modern JavaScript frameworks like React, Angular, or Vue. Its ease of use, combined with powerful testing capabilities and fast feedback loops, makes it an excellent tool for both developers and QA engineers aiming to implement rigorous testing practices.
+#### Playwright
 
-## Presentation (7 Marks)
-
-**Link to presentation slides:** [Insert link to Google Slides, PowerPoint Online, etc.]
-
-**Outline of Presentation:**
-
-- **Introduction to Cypress**
-  - Overview and significance in testing.
-- **Purpose and Functionality**
-  - Detailed discussion on what Cypress is and what it can do.
-- **How to Use Cypress**
-  - Demonstrating setup and simple test examples.
-- **Advantages and Considerations**
-  - Exploring the benefits and potential limitations of using Cypress.
-- **Case Studies**
-  - Examples of successful implementations and the impact on development.
-- **Conclusion and Recommendation**
-  - Summarizing why Cypress might be the right choice for your team or project.
-
-## Report Summary
-
-In our investigation of Cypress as a comprehensive testing tool, we found that its integration into development workflows offers substantial benefits in terms of ease of setup, speed of test execution, and the ability to handle both simple and complex test scenarios directly within a developer's main workflow. Cypress’s architecture allows for real-time test running alongside development, providing immediate feedback and drastically reducing debugging time. Although it is limited to JavaScript, this constraint is offset by the efficiency gains and the deep integration with modern web development tools and practices. Based on these findings, we advocate for Cypress as an excellent choice for web application testing, particularly in environments that emphasize rapid development cycles and high-quality user interfaces.
-
-## Conclusion
-
-Summarize the key points discovered in this assignment and any conclusions drawn from the analysis and testing tool investigation.
+- **Pros:** Supports multiple languages and browsers, fast and reliable execution.
+- **Cons:** Less mature than Selenium, smaller community.
+</details>
 
 ## References
 
 List all references used to prepare this report and presentation.
 
-- <https://www.cypress.io/>
+- Cypress.io. (2024). Retrieved from <https://www.cypress.io/>
+- Cypress.io. (2024). Cypress Documentation. Retrieved from <https://docs.cypress.io>
+- Cypress.io. (2024). How Cypress Works. Retrieved from <https://www.cypress.io/how-it-works/>
+- Cypress.io. (2024). JavaScript End to End Testing Framework. Retrieved from <https://go.cypress.io/get-started>
