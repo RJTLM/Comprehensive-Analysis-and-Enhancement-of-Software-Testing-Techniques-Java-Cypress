@@ -335,8 +335,81 @@ Discuss the creation of mutants, mutation operators used, and the analysis of Re
 
 #### Mutants for Method 1: BubbleSort
 
-- **Mutant 1:** [Description]
-- **Mutant 2:** [Description]
+- **Mutant 1:** [Arithmetic Operator Replacement]
+
+Reachability 
+
+The change to the increment in the outer for loop will be reached in all scenarios.
+
+Infection
+
+The infection will always be present as the code will always reach the for loop and the value of i will be infected.
+
+
+Propagation
+
+Its possible for the infection to be present without propagation being satisfied, these cases are when the passed array is empty, null, already sorted. Other cases as well may pass when the array is mostly sorted.
+
+As an example 
+
+[3,2,1,2,1,2,1,2,1,2,2,5,4] will weakly kill 
+
+[10,9,8,7,6,5,4,3,2,1] will strongly kill the mutant.
+
+- **Mutant 2:** [Arithmetic Operator Replacement]
+
+Reachability 
+
+The mutant will be reached in the cases that the array is of two or greater elements which gets the code inside the outer for loop and into the inner loop.
+
+Infection
+
+The infection will always be always be present as long as reachability is satisfied.
+
+Propagation
+
+Similair to mutant one an empty array, array that is null and arrays of 1 will lead to no propagation. Other instances such as a already sorted array and arrays of the same value along with arrays that have duplicate values present can pass in some instances. 
+
+As an example 
+
+[3,2,1] will weakly kill the mutant
+
+[1,2,1] will strongly kill the mutant
+
+- **Mutant 3:** [Conditional Operator Replacement]
+
+Reachability 
+
+The mutant will always be reached as long as the array is not null or empty.
+
+Infection
+
+The infection is present when the value of arr[j] is greater then the value of arr[j-1] where the values are the same the infection is not present. 
+
+Propagation
+
+The array will now end up being in descending order instead of ascending order in any case where the array is not empty, null or of the same value.
+
+As an example 
+
+[1,1,1,] will weakly kill the mutant
+
+[7,1,7,20,-5] will strongly kill the mutant
+
+- **Mutant 4:** [Statement Replacement]
+Reachability 
+
+The conditions for the mutant to be reached are as follows; the array must consist of at least two elements that are not currently in order for the code to meet the mutant
+
+Infection
+
+No infection is present due to the fact that the mutant is a equivalent mutant
+
+Propagation
+
+This mutant is an equivalent mutant thus no propagation will occur.
+
+
 
 #### Mutants for Method 2: InsertionSort
 
@@ -350,7 +423,12 @@ Evaluate the existing test methods against the mutants created and provide an op
 ### Analysis for Test Method 1: BubbleSort
 
 - **Observations:** [Your observations]
+
+The test method that was chosen is ‘testBubbleSort()’ this test method initialises an array of unsorted Integers that is then passed to method to be sorted and then compare to see that the results match the defined sorted order. The test data is ‘[4, 3, 0, 11, 7, 5, 15, 12, 99, 1]’ with an expected result of ‘[0,1,3,4,5,7,11,12,15,99]’. The test data under the mutation testing strongly kills mutants 1,2 and 4 and the third mutant remains undetected due to the fact it is an equivalent mutant. 
+
 - **Sufficiency of Testing:** [Your judgment]
+
+Overall, the test suite effectively evaluates the sorting methods validity by using a strong set of test data, leading to discovery of the majority of mutants and potential defects. 
 
 ### Analysis for Test Method 2: InsertionSort
 
