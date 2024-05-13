@@ -322,12 +322,100 @@ Discuss your prime path coverage analysis for each method.
 
 | Test Paths                  | Test Requirements                                   |
 |-----------------------------|-----------------------------------------------------|
-| [1,2,3,2,3,2,1,5]           | [2,1,2], [1,2,1]                                    |
-| [1,2,3,4,2,3,4,2,1,5]       | [3,4,2,1,5], [2,3,4,2], [1,2,3,4], [3,4,2,3], [4,2,3,4] |
-| [1,2,3,4,2,3,2,1,5]         | [2,3,4,2], [1,2,3,4], [3,4,2,3], [3,2,1,5], [2,3,2]   |
-| [1,2,3,2,3,2,1,5]           | [3,2,1,5], [2,3,2], [3,2,3]                          |
+| [1,2,1,2,1,2,3,4,2,1,5]     | [3,4,2,1,5], [1,2,1], [2,1,2]                       |
+| [1,2,3,4,2,3,4,2,3,2,1,5]   | [3,2,1,5], [2,3,4,2], [1,2,3,4], [3,4,2,3], [4,2,3,4], [2,3,2] |
+| [1,2,3,2,3,2,1,5]           | [3,2,3]                                             |
+
 
 #### Method 2: InsertionSort
+
+### Test Requirements (TR)
+
+#### Level 0 (L0)
+
+- [1]
+- [2]
+- [3]
+- [4]
+- [5]
+- [6]
+
+#### Level 1 (L1)
+
+-	[1,2]
+-	[2,3]
+-	[3,4]
+-	[4,3]
+-	[3,5]
+-	[5,1]
+-	[1,6]
+
+#### Level 2 (L2)
+
+-	[1,2,3]
+-	[2,3,4]
+-	[2,3,5]
+-	[3,4,3]
+-	[4,3,4]
+-	[4,3,5]
+-	[3,5,1]
+-	[5,1,2]
+-	[5,1,6]
+-	[1,6]
+
+### Simple Paths
+
+-	[1,2]
+-	[2,3]
+-	[3,4]
+-	[4,3]
+-	[3,5]
+-	[5,1]
+-	[1,6]
+-	[1,2,3]
+-	[2,3,4]
+-	[2,3,5]
+-	[3,4,3]
+-	[4,3,4]
+-	[4,3,5]
+-	[3,5,1]
+-	[5,1,2]
+-	[5,1,6]
+-	[1,2,3,4]
+-	[1,2,3,5]
+-	[2,3,5,1]
+-	[4,3,5,1]
+-	[3,5,1,2]
+-	[3,5,1,6]
+-	[5,1,2,3]
+-	[1,2,3,5,1]
+-	[2,3,5,1,2]
+-	[2,3,5,1,6]
+-	[4,3,5,1,2]
+-	[4,3,5,1,6]
+-	[3,5,1,2,3]
+-	[5,1,2,3,4]
+-	[5,1,2,3,5]
+
+### Prime Paths
+
+-	[2,3,5,1,6]
+-	[4,3,5,1,2]
+-	[2,3,5,1,2]
+-	[1,2,3,5,1]
+-	[4,3,5,1,6]
+-	[5,1,2,3,5]
+-	[5,1,2,3,4]
+-	[3,5,1,2,3]
+-	[3,4,3]
+-	[4,3,4]
+
+### Test Paths for Prime Path Coverage
+
+| Test Paths                               | Test Requirements                                   |
+|------------------------------------------|-----------------------------------------------------|
+| [1,2,3,4,3,4,3,4,1,6]                    | [4,3,5,1,6] [3,4,3] [4,3,4]                         |
+| [1,2,3,5,1,2,3,5,1,2,3,4,3,5,1,2,3,5,1,6]| [2,3,5,1,6],[4,3,5,1,2],[2,3,5,1,2],[1,2,3,5,1],[5,1,2,3,5],[5,1,2,3,4],[,3,5,1,2,3],[3,4,3]|
 
 ### Syntax-Based Testing Analysis (10 Marks)
 
@@ -375,7 +463,7 @@ As an **example:**
 
 [1,2,1] will strongly kill the mutant.
 
-**Mutant 3:** Conditional Operator Replacement
+**Mutant 3:** Relational Operator Replacement
 
 **Reachability:**
 
@@ -411,57 +499,56 @@ This mutant is an equivalent mutant thus no propagation will occur.
 
 #### Mutants for Method 2: InsertionSort
 
-**Mutant 1:** [Mutant name here]
+**Mutant 1:** Statement Deletion Operator
 
 **Reachability:**
 
-Text here
+If the array has more than one element the code will enter the for loop and reach the mutant.
 
 **Infection:**
 
-Text here
+Deletion of the while loop leads to ArrayIndexOutOfBoundsException, because without checking the condition j > 0, decrementing j will lead to trying to access:  arr[-1], which is an invalid index  
 
 **Propagation:**
 
-Text here
+The program crashed due to an unhandled condition: 
+<<java.lang.ArrayIndexOutOfBoundsException: Index -1 out of bounds for length 10>>
 
-As an **example:**
+The mutant 1 results in ‘ArrayIndexOutOfBoundsException’ because the loop may try to access arr[j-1]. When deleting the while loop, there is no boundary check from the deleted condition causing the j to go past index 0, leading to trying to access an index of array that doesn't exist. The test harness in the source code doesn’t explicitly handle this exception. If mutants are active, the code will crash due to unhandled exceptions. The test case from the source doesn’t assert or expect any exceptions.
 
-Text here
-
-**Mutant 2:** []
+**Mutant 2:** Bomb Statement Replacement
 
 **Reachability:**
 
-Text here
+If condition j ==1 should be met for the bomb() simulation to be executed, if the second element is less than the first element and the array is not sorted.
 
 **Infection:**
 
-Text here
+If condition j == 1 is met during sorting it will trigger (‘RuntimeException’) 
 
 **Propagation:**
 
-Text here
+The program crashed due to an unhandled condition: 
+java.lang.RuntimeException: bomb trigger 
 
-As an **example:**
+The test array is: << final Integer[] data = { 4, 3, 0, 11, 7, 5, 15, 12, 99, 1 } >> the condition j==1 will be reached, which leads to execution of Bomb(). The test case will fail as it doesn't have any exceptions. 
 
-**Mutant 3:** []
+
+**Mutant 3:** Relational Operator Replacement
 
 **Reachability:**
 
-Text here
+Always reached if array is not empty or null
 
 **Infection:**
 
-Text here
+When j = 0 this leads to the condition arr[j-1] to access index -1 instead of passing over the while loop at the conditional operator is not satisfied.
 
 **Propagation:**
 
-Text here
+This leads to the program crashing due to an unhandled exception: <<java.lang.ArrayIndexOutOfBoundsException: Index -1 out of bounds for length 10>> as an example.
 
-As an **example:**
-
-Text here
+Mutant 3 results in 'ArrayIndexOutOfBoundsException' because of the loop trying to access arr[j-1] which will be the index -1. As there is no implemented exception handling for the method the program doesn't gracefully handle these
 
 **Mutant 4:** []
 
@@ -493,13 +580,24 @@ Overall, the test suite effectively evaluates the sorting methods validity by us
 
 ### Analysis for Test Method 2: InsertionSort
 
-**Observations:** [Your observations]
+**Observations:**
 
-Text here
+For the Insertion Sort method we tested the effects of four differnt mutants to ensure that the selected test harness is utilising strong test cases to make sure that no defects are present in the code. From this we can see that the test harness doesn't accurately handle exceptions which can be detrimental in more complex code bases.Mutants 1 and three both result in an a array index out of bounds error with mutant 2 causing a run time exception, these exceptions are not handled by any try catch method and thus lead to the program ending prematurely.
 
-**Sufficiency of Testing:** [Your judgment]
+**Sufficiency of Testing:**
 
-Text here
+As the source 'Insertion Sort' code is not as complex, it clearly depicts how important it is to properly handle 
+exceptions, in case if the precondition is not met (null values or inconsistent data types), it's better for the code to fail fast with a clear exception message. In that case, there is no need to look through the code, in order to identify what caused the crash. 
+
+To improve test harness, boundary checks must be included and exception handling to prevent runtime errors due to out of bounds access. 
+
+Exception handling should include:  
+
+- i) Null Elements in Array: Handling null values correctly to either sort them to the beginning or end based on defined behavior, or throw an informative exception. 
+
+- ii) Single Element Array and Empty Array, e.g. if(arr== null) OR (arr.length<=1) 
+
+- iii) Handling Non-Comparable Data: to prevent runtime exceptions when elements are not comparable. 
 
 ## Testing Tool Investigation (10 Marks)
 
