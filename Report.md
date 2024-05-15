@@ -416,6 +416,26 @@ Include diagrams and descriptions of the converted method graphs here.
 
 #### Mutants for Method 1: BubbleSort
 
+```java
+public static <T extends Comparable<T>> void bubbleSort(T[] arr) {
+    for (int i = 0; i < arr.length - 1; i++) {
+∆1 for (int i = 0; i < arr.length - 1; i+=2) {
+      for (int j = 1; j < arr.length; j++) {
+∆2  for (int j = 1; j < arr.length; j+=2) {
+        if (arr[j].compareTo(arr[j - 1]) < 0) {
+ ∆3 if (arr[j].compareTo(arr[j - 1]) > 0) {
+          T temp = arr[j];
+          arr[j] = arr[j - 1];
+          arr[j - 1] = temp;
+ ∆4 T temp = arr[j - 1]; // Swap positions
+          arr[j - 1] = arr[j];
+          arr[j] = temp;
+        } 
+      }
+    }
+  }
+```
+
 **Mutant 1:** Arithmetic Operator Replacement
 
 **Reachability:**
