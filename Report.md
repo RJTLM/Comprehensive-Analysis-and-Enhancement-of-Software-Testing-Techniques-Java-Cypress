@@ -409,7 +409,7 @@ Include diagrams and descriptions of the converted method graphs here.
 
 | Test Paths                               | Test Requirements                                   |
 |------------------------------------------|-----------------------------------------------------|
-| [1,2,3,4,3,4,3,4,1,6]                    | [4,3,5,1,6] [3,4,3] [4,3,4]                         |
+| [1,2,3,4,3,4,3,4,1,6]                    | [4,3,5,1,6] , [4,3,4]                         |
 | [1,2,3,5,1,2,3,5,1,2,3,4,3,5,1,2,3,5,1,6]| [2,3,5,1,6],[4,3,5,1,2],[2,3,5,1,2],[1,2,3,5,1],[5,1,2,3,5],[5,1,2,3,4],[,3,5,1,2,3],[3,4,3]|
 
 ### Syntax-Based Testing Analysis (10 Marks)
@@ -432,9 +432,9 @@ Its possible for the infection to be present without propagation being satisfied
 
 As an **example:**
 
-[3,2,1,2,1,2,1,2,1,2,2,5,4] will weakly kill;
+`[3,2,1,2,1,2,1,2,1,2,2,5,4]` will weakly kill;
 
-[10,9,8,7,6,5,4,3,2,1] will strongly kill the mutant.
+`[10,9,8,7,6,5,4,3,2,1]` will strongly kill the mutant.
 
 **Mutant 2:** Arithmetic Operator Replacement
 
@@ -452,9 +452,9 @@ Similair to mutant one an empty array, array that is null and arrays of 1 will l
 
 As an **example:**
 
-[3,2,1] will weakly kill the mutant;
+`[3,2,1]` will weakly kill the mutant;
 
-[1,2,1] will strongly kill the mutant.
+`[1,2,1]` will strongly kill the mutant.
 
 **Mutant 3:** Relational Operator Replacement
 
@@ -472,9 +472,9 @@ The array will now end up being in descending order instead of ascending order i
 
 As an **example:**
 
-[1,1,1,] will weakly kill the mutant;
+`[1,1,1]` will weakly kill the mutant;
 
-[7,1,7,20,-5] will strongly kill the mutant.
+`[7,1,7,20,-5]` will strongly kill the mutant.
 
 **Mutant 4:** Statement Replacement
 
@@ -546,11 +546,11 @@ Mutant 3 results in 'ArrayIndexOutOfBoundsException' because of the loop trying 
 
 **Reachability:**
 
-The mutant will always be reached if the array is not null or empty.
+In all scenarios will the mutant be reached as the for loop is the first line in the method
 
 **Infection:**
 
-In the for loop i++ is being replaced with i+=2.
+The infection will always be present as the code will always reach the for loop and the value of i will be infected.
 
 **Propagation:**
 
@@ -578,7 +578,7 @@ Overall, the test suite effectively evaluates the sorting methods validity by us
 
 **Observations:**
 
-For the Insertion Sort method we tested the effects of four differnt mutants to ensure that the selected test harness is utilising strong test cases to make sure that no defects are present in the code. From this we can see that the test harness doesn't accurately handle exceptions which can be detrimental in more complex code bases.Mutants 1 and three both result in an a array index out of bounds error with mutant 2 causing a run time exception, these exceptions are not handled by any try catch method and thus lead to the program ending prematurely.
+For the Insertion Sort method we tested the effects of four differnt mutants to ensure that the selected test harness is utilising strong test cases to make sure that no defects are present in the code. From this we can see that the test harness doesn't accurately handle exceptions which can be detrimental in more complex code bases.Mutants 1 and three both result in an a array index out of bounds error with mutant 2 causing a run time exception, these exceptions are not handled by any try catch method and thus lead to the program ending prematurely. Mutant 4 leads to an result where very second element is sorted cuasing the actual not to match the expected result.
 
 **Sufficiency of Testing:**
 
