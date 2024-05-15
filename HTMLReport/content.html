@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>content.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="cmpe3008-software-engineering-testing---group-assignment">CMPE3008 Software Engineering Testing - Group Assignment</h1>
+<h2 id="predictive-pioneers"><strong>Predictive Pioneers</strong></h2>
+<h2 id="team-members">Team Members</h2>
+<details>
+  <summary>Click to view team members:</summary>
+  <p><p>Member 1: Elizabeth Russell, 17904982</p>
+  <p>Member 2: Mitchell Pontague, 19126924</p>
+  <p>Member 3: Ryan Mackintosh, 21171466</p></p>
+</details>
+<h2 id="chosen-code-project-details">Chosen Code Project Details</h2>
+<h3 id="source-location-3-marks">Source Location (3 Marks)</h3>
+<ul>
+<li><strong>Repository URL:</strong> <a href="https://github.com/murraco/sorting-algorithms">sorting-algorithms by murraco</a></li>
+<li><strong>Access Date:</strong> 2 May 2024</li>
+</ul>
+<h3 id="chosen-methods">Chosen Methods</h3>
+<p>Describe the chosen methods here, including why they were selected based on the assignment criteria.</p>
+<h4 id="method-1-bubble-sort">Method 1: Bubble Sort</h4>
+<ul>
+<li>
+<p><strong>Description:</strong> [Brief description of what this method does]</p>
+</li>
+<li>
+<p><strong>Source File Location:</strong> <a href="https://github.com/murraco/sorting-algorithms/blob/master/src/main/java/murraco/BubbleSort.java">src/main/java/murraco/BubbleSort.java</a></p>
+<details>
+<summary><strong>Click to view the BubbleSort Source Code:</strong></summary>
+<pre class="hljs"><code><div><span class="hljs-keyword">package</span> murraco;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BubbleSort</span> </span>{
+
+  <span class="hljs-comment">// Time complexity: average O(n^2) and best O(n) - Space complexity: O(1)</span>
+  <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> &lt;T extends Comparable&lt;T&gt;&gt; <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">bubbleSort</span><span class="hljs-params">(T[] arr)</span> </span>{
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; arr.length - <span class="hljs-number">1</span>; i++) {
+      <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">1</span>; j &lt; arr.length; j++) {
+        <span class="hljs-keyword">if</span> (arr[j].compareTo(arr[j - <span class="hljs-number">1</span>]) &lt; <span class="hljs-number">0</span>) {
+          T temp = arr[j];
+          arr[j] = arr[j - <span class="hljs-number">1</span>];
+          arr[j - <span class="hljs-number">1</span>] = temp;
+        }
+      }
+    }
+  }
+}
+</div></code></pre>
+</details>
+</li>
+<li>
+<p><strong>Test File Location:</strong> <a href="https://github.com/murraco/sorting-algorithms/blob/master/src/test/java/murraco/SortingAlgorithmsTest.java">src/test/java/murraco/SortingAlgorithmsTest.java</a></p>
+<details>
+<summary><strong>Click to view the BubbleSort Test Code:</strong></summary>
+<pre class="hljs"><code><div><span class="hljs-keyword">package</span> murraco;
+
+<span class="hljs-keyword">import</span> <span class="hljs-keyword">static</span> org.junit.Assert.assertEquals;
+
+<span class="hljs-keyword">import</span> java.util.Arrays;
+
+<span class="hljs-keyword">import</span> org.junit.Test;
+
+<span class="hljs-keyword">import</span> murraco.BubbleSort;
+<span class="hljs-keyword">import</span> murraco.Heapsort;
+<span class="hljs-keyword">import</span> murraco.InsertionSort;
+<span class="hljs-keyword">import</span> murraco.MergeSort;
+<span class="hljs-keyword">import</span> murraco.Quicksort;
+<span class="hljs-keyword">import</span> murraco.SelectionSort;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SortingAlgorithmsTest</span> </span>{
+
+  <span class="hljs-meta">@Test</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testBubbleSort</span><span class="hljs-params">()</span> </span>{
+      <span class="hljs-keyword">final</span> Integer[] data = {<span class="hljs-number">4</span>, <span class="hljs-number">3</span>, <span class="hljs-number">0</span>, <span class="hljs-number">11</span>, <span class="hljs-number">7</span>, <span class="hljs-number">5</span>, <span class="hljs-number">15</span>, <span class="hljs-number">12</span>, <span class="hljs-number">99</span>, <span class="hljs-number">1</span>};
+      BubbleSort.bubbleSort(data);
+      assertEquals(<span class="hljs-string">"[0, 1, 3, 4, 5, 7, 11, 12, 15, 99]"</span>, Arrays.toString(data));
+  }
+
+  <span class="hljs-meta">@Test</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testInsertionSort</span><span class="hljs-params">()</span> </span>{
+      <span class="hljs-keyword">final</span> Integer[] data = {<span class="hljs-number">4</span>, <span class="hljs-number">3</span>, <span class="hljs-number">0</span>, <span class="hljs-number">11</span>, <span class="hljs-number">7</span>, <span class="hljs-number">5</span>, <span class="hljs-number">15</span>, <span class="hljs-number">12</span>, <span class="hljs-number">99</span>, <span class="hljs-number">1</span>};
+      InsertionSort.insertionSort(data);
+      assertEquals(<span class="hljs-string">"[0, 1, 3, 4, 5, 7, 11, 12, 15, 99]"</span>, Arrays.toString(data));
+  }
+
+  <span class="hljs-meta">@Test</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testSelectionSort</span><span class="hljs-params">()</span> </span>{
+      <span class="hljs-keyword">final</span> Integer[] data = {<span class="hljs-number">4</span>, <span class="hljs-number">3</span>, <span class="hljs-number">0</span>, <span class="hljs-number">11</span>, <span class="hljs-number">7</span>, <span class="hljs-number">5</span>, <span class="hljs-number">15</span>, <span class="hljs-number">12</span>, <span class="hljs-number">99</span>, <span class="hljs-number">1</span>};
+      SelectionSort.selectionSort(data);
+      assertEquals(<span class="hljs-string">"[0, 1, 3, 4, 5, 7, 11, 12, 15, 99]"</span>, Arrays.toString(data));
+  }
+
+  <span class="hljs-meta">@Test</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testMergeSort</span><span class="hljs-params">()</span> </span>{
+      <span class="hljs-keyword">final</span> Integer[] data = {<span class="hljs-number">4</span>, <span class="hljs-number">3</span>, <span class="hljs-number">0</span>, <span class="hljs-number">11</span>, <span class="hljs-number">7</span>, <span class="hljs-number">5</span>, <span class="hljs-number">15</span>, <span class="hljs-number">12</span>, <span class="hljs-number">99</span>, <span class="hljs-number">1</span>};
+      MergeSort.mergeSort(data);
+      assertEquals(<span class="hljs-string">"[0, 1, 3, 4, 5, 7, 11, 12, 15, 99]"</span>, Arrays.toString(data));
+  }
+
+  <span class="hljs-meta">@Test</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testHeapsort</span><span class="hljs-params">()</span> </span>{
+      <span class="hljs-keyword">final</span> Integer[] data = {<span class="hljs-number">4</span>, <span class="hljs-number">3</span>, <span class="hljs-number">0</span>, <span class="hljs-number">11</span>, <span class="hljs-number">7</span>, <span class="hljs-number">5</span>, <span class="hljs-number">15</span>, <span class="hljs-number">12</span>, <span class="hljs-number">99</span>, <span class="hljs-number">1</span>};
+      Heapsort.heapSort(data);
+      assertEquals(<span class="hljs-string">"[0, 1, 3, 4, 5, 7, 11, 12, 15, 99]"</span>, Arrays.toString(data));
+  }
+
+  <span class="hljs-meta">@Test</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testQuicksort</span><span class="hljs-params">()</span> </span>{
+      <span class="hljs-keyword">final</span> Integer[] data = {<span class="hljs-number">4</span>, <span class="hljs-number">3</span>, <span class="hljs-number">0</span>, <span class="hljs-number">11</span>, <span class="hljs-number">7</span>, <span class="hljs-number">5</span>, <span class="hljs-number">15</span>, <span class="hljs-number">12</span>, <span class="hljs-number">99</span>, <span class="hljs-number">1</span>};
+      Quicksort.quickSort(data);
+      assertEquals(<span class="hljs-string">"[0, 1, 3, 4, 5, 7, 11, 12, 15, 99]"</span>, Arrays.toString(data));
+  }
+}
+</div></code></pre>
+</details>
+</li>
+</ul>
+<h4 id="method-2-insertion-sort">Method 2: Insertion Sort</h4>
+<ul>
+<li>
+<p><strong>Description:</strong> [Brief description of what this method does]</p>
+</li>
+<li>
+<p><strong>Source File Location:</strong> <a href="https://github.com/murraco/sorting-algorithms/blob/master/src/main/java/murraco/InsertionSort.java">src/main/java/murraco/InsertionSort.java</a></p>
+<details>
+<summary><strong>Click to view the InsertionSort Source Code:</strong></summary>
+<pre class="hljs"><code><div><span class="hljs-keyword">package</span> murraco;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">InsertionSort</span> </span>{
+
+  <span class="hljs-comment">// Time complexity: average O(n^2) and best O(n) - Space complexity: O(1)</span>
+  <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> &lt;T extends Comparable&lt;T&gt;&gt; <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">insertionSort</span><span class="hljs-params">(T[] arr)</span> </span>{
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; arr.length; i++) {
+      T temp = arr[i];
+      <span class="hljs-keyword">int</span> j = i;
+      <span class="hljs-keyword">while</span> (j &gt; <span class="hljs-number">0</span> &amp;&amp; arr[j - <span class="hljs-number">1</span>].compareTo(temp) &gt; <span class="hljs-number">0</span>) {
+        arr[j] = arr[j - <span class="hljs-number">1</span>];
+        j--;
+      }
+      arr[j] = temp;
+    }
+  }
+
+}
+</div></code></pre>
+</details>
+</li>
+<li>
+<p><strong>Test File Location:</strong> <a href="https://github.com/murraco/sorting-algorithms/blob/master/src/test/java/murraco/SortingAlgorithmsTest.java">src/test/java/murraco/SortingAlgorithmsTest.java</a></p>
+<details>
+<summary><strong>Click to view the InsertionSort Test Code:</strong></summary>
+<pre class="hljs"><code><div><span class="hljs-keyword">package</span> murraco;
+
+<span class="hljs-keyword">import</span> <span class="hljs-keyword">static</span> org.junit.Assert.assertEquals;
+
+<span class="hljs-keyword">import</span> java.util.Arrays;
+
+<span class="hljs-keyword">import</span> org.junit.Test;
+
+<span class="hljs-keyword">import</span> murraco.BubbleSort;
+<span class="hljs-keyword">import</span> murraco.Heapsort;
+<span class="hljs-keyword">import</span> murraco.InsertionSort;
+<span class="hljs-keyword">import</span> murraco.MergeSort;
+<span class="hljs-keyword">import</span> murraco.Quicksort;
+<span class="hljs-keyword">import</span> murraco.SelectionSort;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SortingAlgorithmsTest</span> </span>{
+
+  <span class="hljs-meta">@Test</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testBubbleSort</span><span class="hljs-params">()</span> </span>{
+      <span class="hljs-keyword">final</span> Integer[] data = {<span class="hljs-number">4</span>, <span class="hljs-number">3</span>, <span class="hljs-number">0</span>, <span class="hljs-number">11</span>, <span class="hljs-number">7</span>, <span class="hljs-number">5</span>, <span class="hljs-number">15</span>, <span class="hljs-number">12</span>, <span class="hljs-number">99</span>, <span class="hljs-number">1</span>};
+      BubbleSort.bubbleSort(data);
+      assertEquals(<span class="hljs-string">"[0, 1, 3, 4, 5, 7, 11, 12, 15, 99]"</span>, Arrays.toString(data));
+  }
+
+  <span class="hljs-meta">@Test</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testInsertionSort</span><span class="hljs-params">()</span> </span>{
+      <span class="hljs-keyword">final</span> Integer[] data = {<span class="hljs-number">4</span>, <span class="hljs-number">3</span>, <span class="hljs-number">0</span>, <span class="hljs-number">11</span>, <span class="hljs-number">7</span>, <span class="hljs-number">5</span>, <span class="hljs-number">15</span>, <span class="hljs-number">12</span>, <span class="hljs-number">99</span>, <span class="hljs-number">1</span>};
+      InsertionSort.insertionSort(data);
+      assertEquals(<span class="hljs-string">"[0, 1, 3, 4, 5, 7, 11, 12, 15, 99]"</span>, Arrays.toString(data));
+  }
+
+  <span class="hljs-meta">@Test</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testSelectionSort</span><span class="hljs-params">()</span> </span>{
+      <span class="hljs-keyword">final</span> Integer[] data = {<span class="hljs-number">4</span>, <span class="hljs-number">3</span>, <span class="hljs-number">0</span>, <span class="hljs-number">11</span>, <span class="hljs-number">7</span>, <span class="hljs-number">5</span>, <span class="hljs-number">15</span>, <span class="hljs-number">12</span>, <span class="hljs-number">99</span>, <span class="hljs-number">1</span>};
+      SelectionSort.selectionSort(data);
+      assertEquals(<span class="hljs-string">"[0, 1, 3, 4, 5, 7, 11, 12, 15, 99]"</span>, Arrays.toString(data));
+  }
+
+  <span class="hljs-meta">@Test</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testMergeSort</span><span class="hljs-params">()</span> </span>{
+      <span class="hljs-keyword">final</span> Integer[] data = {<span class="hljs-number">4</span>, <span class="hljs-number">3</span>, <span class="hljs-number">0</span>, <span class="hljs-number">11</span>, <span class="hljs-number">7</span>, <span class="hljs-number">5</span>, <span class="hljs-number">15</span>, <span class="hljs-number">12</span>, <span class="hljs-number">99</span>, <span class="hljs-number">1</span>};
+      MergeSort.mergeSort(data);
+      assertEquals(<span class="hljs-string">"[0, 1, 3, 4, 5, 7, 11, 12, 15, 99]"</span>, Arrays.toString(data));
+  }
+
+  <span class="hljs-meta">@Test</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testHeapsort</span><span class="hljs-params">()</span> </span>{
+      <span class="hljs-keyword">final</span> Integer[] data = {<span class="hljs-number">4</span>, <span class="hljs-number">3</span>, <span class="hljs-number">0</span>, <span class="hljs-number">11</span>, <span class="hljs-number">7</span>, <span class="hljs-number">5</span>, <span class="hljs-number">15</span>, <span class="hljs-number">12</span>, <span class="hljs-number">99</span>, <span class="hljs-number">1</span>};
+      Heapsort.heapSort(data);
+      assertEquals(<span class="hljs-string">"[0, 1, 3, 4, 5, 7, 11, 12, 15, 99]"</span>, Arrays.toString(data));
+  }
+
+  <span class="hljs-meta">@Test</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testQuicksort</span><span class="hljs-params">()</span> </span>{
+      <span class="hljs-keyword">final</span> Integer[] data = {<span class="hljs-number">4</span>, <span class="hljs-number">3</span>, <span class="hljs-number">0</span>, <span class="hljs-number">11</span>, <span class="hljs-number">7</span>, <span class="hljs-number">5</span>, <span class="hljs-number">15</span>, <span class="hljs-number">12</span>, <span class="hljs-number">99</span>, <span class="hljs-number">1</span>};
+      Quicksort.quickSort(data);
+      assertEquals(<span class="hljs-string">"[0, 1, 3, 4, 5, 7, 11, 12, 15, 99]"</span>, Arrays.toString(data));
+  }
+}
+</div></code></pre>
+</details>
+</li>
+</ul>
+<h2 id="coverage-analysis">Coverage Analysis</h2>
+<h3 id="method-graphs">Method Graphs</h3>
+<p>Include diagrams and descriptions of the converted method graphs here.</p>
+<h4 id="graph-for-method-1-bubblesort">Graph for Method 1: BubbleSort</h4>
+<p><img src="Content\BubbleFlowChart.png" alt="BubbleSort Graph Image"></p>
+<h4 id="graph-for-method-2-insertionsort">Graph for Method 2: InsertionSort</h4>
+<p><img src="Content\Graph_Insertion_Sort.png" alt="InsertionSort Graph Image"></p>
+<h3 id="prime-path-coverage-10-marks">Prime Path Coverage (10 Marks)</h3>
+<p>Discuss your prime path coverage analysis for each method.</p>
+<h2 id="method-1-bubblesort-test-coverage-analysis">Method 1: BubbleSort Test Coverage Analysis</h2>
+<h3 id="bubblesort-test-requirements-tr">BubbleSort Test Requirements (TR)</h3>
+<h4 id="bubblesort-level-0-l0">BubbleSort Level 0 (L0)</h4>
+<ul>
+<li>[1]</li>
+<li>[2]</li>
+<li>[5]</li>
+<li>[3]</li>
+<li>[4]</li>
+</ul>
+<h4 id="bubblesort-level-1-l1">BubbleSort Level 1 (L1)</h4>
+<ul>
+<li>[1,2]</li>
+<li>[1,5]</li>
+<li>[2,1]</li>
+<li>[2,3]</li>
+<li>[3,4]</li>
+<li>[3,2]</li>
+<li>[4,2]</li>
+</ul>
+<h4 id="bubblesort-level-2-l2">BubbleSort Level 2 (L2)</h4>
+<ul>
+<li>[1,2,1]</li>
+<li>[1,2,3]</li>
+<li>[1,5]</li>
+<li>[2,1,2]</li>
+<li>[2,1,5]</li>
+<li>[2,3,4]</li>
+<li>[2,3,2]</li>
+<li>[3,4,2]</li>
+<li>[3,2,1]</li>
+<li>[3,2,3]</li>
+<li>[4,2,1]</li>
+<li>[4,2,3]</li>
+</ul>
+<h3 id="bubblesort-simple-paths">BubbleSort Simple Paths</h3>
+<ul>
+<li>[1,2]</li>
+<li>[1,5]</li>
+<li>[2,1]</li>
+<li>[2,3]</li>
+<li>[3,4]</li>
+<li>[3,2]</li>
+<li>[4,2]</li>
+<li>[1,2,1]</li>
+<li>[1,2,3]</li>
+<li>[2,1,2]</li>
+<li>[2,1,5]</li>
+<li>[2,3,4]</li>
+<li>[2,3,2]</li>
+<li>[3,4,2]</li>
+<li>[3,2,1]</li>
+<li>[3,2,3]</li>
+<li>[4,2,1]</li>
+<li>[4,2,3]</li>
+<li>[1,2,3,4]</li>
+<li>[2,3,4,2]</li>
+<li>[3,4,2,1]</li>
+<li>[3,4,2,3]</li>
+<li>[3,2,1,5]</li>
+<li>[4,2,1,5]</li>
+<li>[4,2,3,4]</li>
+<li>[3,4,2,1,5]</li>
+</ul>
+<h3 id="bubblesort-prime-paths">BubbleSort Prime Paths</h3>
+<ul>
+<li>[3,4,2,1,5]</li>
+<li>[2,3,4,2]</li>
+<li>[1,2,3,4]</li>
+<li>[3,4,2,3]</li>
+<li>[4,2,3,4]</li>
+<li>[3,2,1,5]</li>
+<li>[2,1,2]</li>
+<li>[1,2,1]</li>
+<li>[2,3,2]</li>
+<li>[3,2,3]</li>
+</ul>
+<h3 id="bubblesort-test-paths-for-prime-path-coverage">BubbleSort Test Paths for Prime Path Coverage</h3>
+<table>
+<thead>
+<tr>
+<th>Test Paths</th>
+<th>Test Requirements</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[1,2,1,2,1,2,3,4,2,1,5]</td>
+<td>[3,4,2,1,5], [1,2,1], [2,1,2]</td>
+</tr>
+<tr>
+<td>[1,2,3,4,2,3,4,2,3,2,1,5]</td>
+<td>[3,2,1,5], [2,3,4,2], [1,2,3,4], [3,4,2,3], [4,2,3,4], [2,3,2]</td>
+</tr>
+<tr>
+<td>[1,2,3,2,3,2,1,5]</td>
+<td>[3,2,3]</td>
+</tr>
+</tbody>
+</table>
+<h4 id="method-2-insertionsort">Method 2: InsertionSort</h4>
+<h3 id="insertionsort-test-requirements-tr">InsertionSort Test Requirements (TR)</h3>
+<h4 id="insertionsort-level-0-l0">InsertionSort Level 0 (L0)</h4>
+<ul>
+<li>[1]</li>
+<li>[2]</li>
+<li>[3]</li>
+<li>[4]</li>
+<li>[5]</li>
+<li>[6]</li>
+</ul>
+<h4 id="insertionsort-level-1-l1">InsertionSort Level 1 (L1)</h4>
+<ul>
+<li>[1,2]</li>
+<li>[2,3]</li>
+<li>[3,4]</li>
+<li>[4,3]</li>
+<li>[3,5]</li>
+<li>[5,1]</li>
+<li>[1,6]</li>
+</ul>
+<h4 id="insertionsort-level-2-l2">InsertionSort Level 2 (L2)</h4>
+<ul>
+<li>[1,2,3]</li>
+<li>[2,3,4]</li>
+<li>[2,3,5]</li>
+<li>[3,4,3]</li>
+<li>[4,3,4]</li>
+<li>[4,3,5]</li>
+<li>[3,5,1]</li>
+<li>[5,1,2]</li>
+<li>[5,1,6]</li>
+<li>[1,6]</li>
+</ul>
+<h3 id="insertionsort-simple-paths">InsertionSort Simple Paths</h3>
+<ul>
+<li>[1,2]</li>
+<li>[2,3]</li>
+<li>[3,4]</li>
+<li>[4,3]</li>
+<li>[3,5]</li>
+<li>[5,1]</li>
+<li>[1,6]</li>
+<li>[1,2,3]</li>
+<li>[2,3,4]</li>
+<li>[2,3,5]</li>
+<li>[3,4,3]</li>
+<li>[4,3,4]</li>
+<li>[4,3,5]</li>
+<li>[3,5,1]</li>
+<li>[5,1,2]</li>
+<li>[5,1,6]</li>
+<li>[1,2,3,4]</li>
+<li>[1,2,3,5]</li>
+<li>[2,3,5,1]</li>
+<li>[4,3,5,1]</li>
+<li>[3,5,1,2]</li>
+<li>[3,5,1,6]</li>
+<li>[5,1,2,3]</li>
+<li>[1,2,3,5,1]</li>
+<li>[2,3,5,1,2]</li>
+<li>[2,3,5,1,6]</li>
+<li>[4,3,5,1,2]</li>
+<li>[4,3,5,1,6]</li>
+<li>[3,5,1,2,3]</li>
+<li>[5,1,2,3,4]</li>
+<li>[5,1,2,3,5]</li>
+</ul>
+<h3 id="insertionsort-prime-paths">InsertionSort Prime Paths</h3>
+<ul>
+<li>[2,3,5,1,6]</li>
+<li>[4,3,5,1,2]</li>
+<li>[2,3,5,1,2]</li>
+<li>[1,2,3,5,1]</li>
+<li>[4,3,5,1,6]</li>
+<li>[5,1,2,3,5]</li>
+<li>[5,1,2,3,4]</li>
+<li>[3,5,1,2,3]</li>
+<li>[3,4,3]</li>
+<li>[4,3,4]</li>
+</ul>
+<h3 id="insertionsort-test-paths-for-prime-path-coverage">InsertionSort Test Paths for Prime Path Coverage</h3>
+<table>
+<thead>
+<tr>
+<th>Test Paths</th>
+<th>Test Requirements</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[1,2,3,4,3,4,3,4,1,6]</td>
+<td>[4,3,5,1,6] [3,4,3] [4,3,4]</td>
+</tr>
+<tr>
+<td>[1,2,3,5,1,2,3,5,1,2,3,4,3,5,1,2,3,5,1,6]</td>
+<td>[2,3,5,1,6],[4,3,5,1,2],[2,3,5,1,2],[1,2,3,5,1],[5,1,2,3,5],[5,1,2,3,4],[,3,5,1,2,3],[3,4,3]</td>
+</tr>
+</tbody>
+</table>
+<h3 id="syntax-based-testing-analysis-10-marks">Syntax-Based Testing Analysis (10 Marks)</h3>
+<p>Discuss the creation of mutants, mutation operators used, and the analysis of Reachability, Infection, and Propagation conditions.</p>
+<h4 id="mutants-for-method-1-bubblesort">Mutants for Method 1: BubbleSort</h4>
+<p><strong>Mutant 1:</strong> Arithmetic Operator Replacement</p>
+<p><strong>Reachability:</strong></p>
+<p>The change to the increment in the outer for loop will be reached in all scenarios.</p>
+<p><strong>Infection:</strong></p>
+<p>The infection will always be present as the code will always reach the for loop and the value of i will be infected.</p>
+<p><strong>Propagation:</strong></p>
+<p>Its possible for the infection to be present without propagation being satisfied, these cases are when the passed array is empty, null, already sorted. Other cases as well may pass when the array is mostly sorted.</p>
+<p>As an <strong>example:</strong></p>
+<p>[3,2,1,2,1,2,1,2,1,2,2,5,4] will weakly kill;</p>
+<p>[10,9,8,7,6,5,4,3,2,1] will strongly kill the mutant.</p>
+<p><strong>Mutant 2:</strong> Arithmetic Operator Replacement</p>
+<p><strong>Reachability:</strong></p>
+<p>The mutant will be reached in the cases that the array is of two or greater elements which gets the code inside the outer for loop and into the inner loop.</p>
+<p><strong>Infection:</strong></p>
+<p>The infection will always be always be present as long as reachability is satisfied.</p>
+<p><strong>Propagation:</strong></p>
+<p>Similair to mutant one an empty array, array that is null and arrays of 1 will lead to no propagation. Other instances such as a already sorted array and arrays of the same value along with arrays that have duplicate values present can pass in some instances.</p>
+<p>As an <strong>example:</strong></p>
+<p>[3,2,1] will weakly kill the mutant;</p>
+<p>[1,2,1] will strongly kill the mutant.</p>
+<p><strong>Mutant 3:</strong> Relational Operator Replacement</p>
+<p><strong>Reachability:</strong></p>
+<p>The mutant will always be reached as long as the array is not null or empty.</p>
+<p><strong>Infection:</strong></p>
+<p>The infection is present when the value of arr[j] is greater then the value of arr[j-1] where the values are the same the infection is not present.</p>
+<p><strong>Propagation:</strong></p>
+<p>The array will now end up being in descending order instead of ascending order in any case where the array is not empty, null or of the same value.</p>
+<p>As an <strong>example:</strong></p>
+<p>[1,1,1,] will weakly kill the mutant;</p>
+<p>[7,1,7,20,-5] will strongly kill the mutant.</p>
+<p><strong>Mutant 4:</strong> Statement Replacement</p>
+<p><strong>Reachability:</strong></p>
+<p>The conditions for the mutant to be reached are as follows; the array must consist of at least two elements that are not currently in order for the code to meet the mutant.</p>
+<p><strong>Infection:</strong></p>
+<p>No infection is present due to the fact that the mutant is a equivalent mutant.</p>
+<p><strong>Propagation:</strong></p>
+<p>This mutant is an equivalent mutant thus no propagation will occur.</p>
+<h4 id="mutants-for-method-2-insertionsort">Mutants for Method 2: InsertionSort</h4>
+<p><strong>Mutant 1:</strong> Statement Deletion Operator</p>
+<p><strong>Reachability:</strong></p>
+<p>If the array has more than one element the code will enter the for loop and reach the mutant.</p>
+<p><strong>Infection:</strong></p>
+<p>Deletion of the while loop leads to ArrayIndexOutOfBoundsException, because without checking the condition j &gt; 0, decrementing j will lead to trying to access:  arr[-1], which is an invalid index</p>
+<p><strong>Propagation:</strong></p>
+<p>The program crashed due to an unhandled condition:
+&lt;&lt;java.lang.ArrayIndexOutOfBoundsException: Index -1 out of bounds for length 10&gt;&gt;</p>
+<p>The mutant 1 results in ‘ArrayIndexOutOfBoundsException’ because the loop may try to access arr[j-1]. When deleting the while loop, there is no boundary check from the deleted condition causing the j to go past index 0, leading to trying to access an index of array that doesn't exist. The test harness in the source code doesn’t explicitly handle this exception. If mutants are active, the code will crash due to unhandled exceptions. The test case from the source doesn’t assert or expect any exceptions.</p>
+<p><strong>Mutant 2:</strong> Bomb Statement Replacement</p>
+<p><strong>Reachability:</strong></p>
+<p>If condition j ==1 should be met for the bomb() simulation to be executed, if the second element is less than the first element and the array is not sorted.</p>
+<p><strong>Infection:</strong></p>
+<p>If condition j == 1 is met during sorting it will trigger (‘RuntimeException’)</p>
+<p><strong>Propagation:</strong></p>
+<p>The program crashed due to an unhandled condition:
+java.lang.RuntimeException: bomb trigger</p>
+<p>The test array is: &lt;&lt; final Integer[] data = { 4, 3, 0, 11, 7, 5, 15, 12, 99, 1 } &gt;&gt; the condition j==1 will be reached, which leads to execution of Bomb(). The test case will fail as it doesn't have any exceptions.</p>
+<p><strong>Mutant 3:</strong> Relational Operator Replacement</p>
+<p><strong>Reachability:</strong></p>
+<p>Always reached if array is not empty or null</p>
+<p><strong>Infection:</strong></p>
+<p>When j = 0 this leads to the condition arr[j-1] to access index -1 instead of passing over the while loop at the conditional operator is not satisfied.</p>
+<p><strong>Propagation:</strong></p>
+<p>This leads to the program crashing due to an unhandled exception: &lt;&lt;java.lang.ArrayIndexOutOfBoundsException: Index -1 out of bounds for length 10&gt;&gt; as an example.</p>
+<p>Mutant 3 results in 'ArrayIndexOutOfBoundsException' because of the loop trying to access arr[j-1] which will be the index -1. As there is no implemented exception handling for the method the program doesn't gracefully handle these</p>
+<p><strong>Mutant 4:</strong> []</p>
+<p><strong>Reachability:</strong></p>
+<p>Text here</p>
+<p><strong>Infection:</strong></p>
+<p>Text here</p>
+<p><strong>Propagation:</strong></p>
+<p>Text here</p>
+<h2 id="test-method-analysis-5-marks">Test Method Analysis (5 Marks)</h2>
+<p>Evaluate the existing test methods against the mutants created and provide an opinion on the sufficiency of the tests.</p>
+<h3 id="analysis-for-test-method-1-bubblesort">Analysis for Test Method 1: BubbleSort</h3>
+<p><strong>Observations:</strong></p>
+<p>The test method that was chosen is ‘testBubbleSort()’ this test method initialises an array of unsorted Integers that is then passed to method to be sorted and then compare to see that the results match the defined sorted order. The test data is <code>[4,3,0,11,7,5,15,12,99,1]</code> with an expected result of <code>[0,1,3,4,5,7,11,12,15,99]</code>. The test data under the mutation testing strongly kills mutants 1,2 and 4 and the third mutant remains undetected due to the fact it is an equivalent mutant.</p>
+<p><strong>Sufficiency of Testing:</strong></p>
+<p>Overall, the test suite effectively evaluates the sorting methods validity by using a strong set of test data, leading to discovery of the majority of mutants and potential defects.</p>
+<h3 id="analysis-for-test-method-2-insertionsort">Analysis for Test Method 2: InsertionSort</h3>
+<p><strong>Observations:</strong></p>
+<p>For the Insertion Sort method we tested the effects of four differnt mutants to ensure that the selected test harness is utilising strong test cases to make sure that no defects are present in the code. From this we can see that the test harness doesn't accurately handle exceptions which can be detrimental in more complex code bases.Mutants 1 and three both result in an a array index out of bounds error with mutant 2 causing a run time exception, these exceptions are not handled by any try catch method and thus lead to the program ending prematurely.</p>
+<p><strong>Sufficiency of Testing:</strong></p>
+<p>As the source 'Insertion Sort' code is not as complex, it clearly depicts how important it is to properly handle
+exceptions, in case if the precondition is not met (null values or inconsistent data types), it's better for the code to fail fast with a clear exception message. In that case, there is no need to look through the code, in order to identify what caused the crash.</p>
+<p>To improve test harness, boundary checks must be included and exception handling to prevent runtime errors due to out of bounds access.</p>
+<p>Exception handling should include:</p>
+<ul>
+<li>
+<p>i) Null Elements in Array: Handling null values correctly to either sort them to the beginning or end based on defined behavior, or throw an informative exception.</p>
+</li>
+<li>
+<p>ii) Single Element Array and Empty Array, e.g. if(arr== null) OR (arr.length&lt;=1)</p>
+</li>
+<li>
+<p>iii) Handling Non-Comparable Data: to prevent runtime exceptions when elements are not comparable.</p>
+</li>
+</ul>
+<h2 id="testing-tool-investigation-10-marks">Testing Tool Investigation (10 Marks)</h2>
+<h2 id="chosen-tool-cypress">Chosen Tool: <a href="https://cypress.io">Cypress</a></h2>
+<h3 id="introduction">Introduction</h3>
+<p>Cypress is a a popular <strong>JavaScript-based end-to-end testing framework</strong> developed specifically for the needs of modern <strong>web application testing</strong>. Cypress <strong>integrates with other tools and frameworks</strong> (e.g. Mocha), but also works well as a standalone framework.It's uniquely built to simplify every aspect of testing—from setup to debugging—by running in the same execution cycle as the application under test. This approach not only <strong>enhances test reliability and speed</strong> but also <strong>integrates seamlessly with development workflows</strong> (Cypress.io, 2024).</p>
+<h3 id="purpose-and-functionality">Purpose and Functionality</h3>
+<p>Cypress is designed to handle both simple and complex testing scenarios with full <strong>native access</strong> to the Document Object Model (DOM) and all related objects. This <strong>direct access eliminates the need for third-party drivers or proxies</strong>, allowing tests to <strong>interact with the application as a user would</strong> (Cypress.io, 2024).</p>
+<h3 id="usage">Usage</h3>
+<p>Installing Cypress requires just a few commands via the Node Package Manager (npm), integrating <strong>directly into any web project</strong>. It's particularly <strong>suited for JavaScript developers</strong>, providing an intuitive <strong>API</strong> and <strong>syntax</strong> (Cypress.io, 2024).</p>
+<h4 id="basic-example-test-login-form">Basic Example Test: Login Form</h4>
+<details>
+  <summary><strong>Click to view the Login Form Test Code:</strong></summary>
+<pre class="hljs"><code><div>describe(<span class="hljs-string">'Login Form'</span>, () =&gt; {
+  it(<span class="hljs-string">'successfully logs in the user'</span>, () =&gt; {
+    <span class="hljs-comment">// Visit the login page</span>
+    cy.visit(<span class="hljs-string">'https://example.com/login'</span>);
+
+    <span class="hljs-comment">// Type in the username and password fields</span>
+    cy.get(<span class="hljs-string">'input[name=username]'</span>).type(<span class="hljs-string">'user@example.com'</span>);
+    cy.get(<span class="hljs-string">'input[name=password]'</span>).type(<span class="hljs-string">'password123'</span>);
+
+    <span class="hljs-comment">// Click the login button</span>
+    cy.get(<span class="hljs-string">'button[type=submit]'</span>).click();
+
+    <span class="hljs-comment">// Check the URL to be redirected to the dashboard</span>
+    cy.url().should(<span class="hljs-string">'include'</span>, <span class="hljs-string">'/dashboard'</span>);
+
+    <span class="hljs-comment">// Optional: Verify the presence of an element that is only visible when logged in</span>
+    cy.get(<span class="hljs-string">'.welcome-message'</span>).should(<span class="hljs-string">'contain'</span>, <span class="hljs-string">'Welcome, user!'</span>);
+  });
+});
+</div></code></pre>
+<p>This example demonstrates how you might write a Cypress test to check the functionality of a login form on a web application. The test will navigate to the login page, enter credentials, submit the form, and verify that the login was successful based on the expected URL change.</p>
+<p>Cypress operates entirely within the browser and does not require any external drivers or servers to run. This test showcases how Cypress alone can handle:</p>
+<ul>
+<li>Navigation</li>
+<li>DOM querying</li>
+<li>Interaction (clicks, typing)</li>
+<li>Assertions to verify states and contents</li>
+</ul>
+<p>By utilising Cypress's rich API for handling HTTP requests, manipulating cookies, and interacting with local storage, you can extend such tests to include more complex scenarios like handling authentication tokens or testing different user roles.</p>
+<p>This approach ensures that Cypress can fully manage and execute sophisticated end-to-end tests without the need for additional testing frameworks or tools.</p>
+</details>
+<h3 id="detailed-example-test-multi-step-registration-form">Detailed Example Test: Multi-Step Registration Form</h3>
+<details>
+  <summary><strong>Click to view the Multi-Step Registration Form Test Code:</strong></summary>
+<pre class="hljs"><code><div>describe(<span class="hljs-string">'Multi-Step Registration Form'</span>, () =&gt; {
+  it(<span class="hljs-string">'successfully registers a new user'</span>, () =&gt; {
+    <span class="hljs-comment">// Visit the registration page</span>
+    cy.visit(<span class="hljs-string">'https://example.com/register'</span>);
+
+    <span class="hljs-comment">// Step 1: Enter personal details</span>
+    cy.get(<span class="hljs-string">'input[name=firstName]'</span>).type(<span class="hljs-string">'John'</span>);
+    cy.get(<span class="hljs-string">'input[name=lastName]'</span>).type(<span class="hljs-string">'Doe'</span>);
+    cy.get(<span class="hljs-string">'input[name=email]'</span>).type(<span class="hljs-string">'john.doe@example.com'</span>);
+    cy.get(<span class="hljs-string">'button.next'</span>).click();
+
+    <span class="hljs-comment">// Step 2: Enter address details</span>
+    cy.get(<span class="hljs-string">'input[name=address]'</span>).type(<span class="hljs-string">'1234 Elm Street'</span>);
+    cy.get(<span class="hljs-string">'input[name=city]'</span>).type(<span class="hljs-string">'Metropolis'</span>);
+    cy.get(<span class="hljs-string">'select[name=state]'</span>).select(<span class="hljs-string">'New York'</span>);
+    cy.get(<span class="hljs-string">'input[name=zip]'</span>).type(<span class="hljs-string">'12345'</span>);
+    cy.get(<span class="hljs-string">'button.next'</span>).click();
+
+    <span class="hljs-comment">// Step 3: Set username and password</span>
+    cy.get(<span class="hljs-string">'input[name=username]'</span>).type(<span class="hljs-string">'john_doe'</span>);
+    cy.get(<span class="hljs-string">'input[name=password]'</span>).type(<span class="hljs-string">'secure12345'</span>);
+    cy.get(<span class="hljs-string">'button[type=submit]'</span>).click();
+
+    <span class="hljs-comment">// Verify that the registration was successful based on the expected confirmation message</span>
+    cy.contains(<span class="hljs-string">'Please check your email to activate your account'</span>).should(<span class="hljs-string">'be.visible'</span>);
+
+    <span class="hljs-comment">// Optional: Check for an API call that sends a confirmation email</span>
+    cy.intercept(<span class="hljs-string">'POST'</span>, <span class="hljs-string">'/api/send-confirmation-email'</span>).as(<span class="hljs-string">'confirmationEmail'</span>);
+    cy.wait(<span class="hljs-string">'@confirmationEmail'</span>).its(<span class="hljs-string">'response.statusCode'</span>).should(<span class="hljs-string">'eq'</span>, <span class="hljs-number">200</span>);
+  });
+});
+</div></code></pre>
+<p>This example demonstrates how you might write a Cypress test to check the functionality of a multi-step registration form on a web application. The test will navigate to the registration page, enter user details, handle form validations, navigate through multiple steps, and finally verify registration by checking for a confirmation email.</p>
+<p>Cypress facilitates comprehensive testing of complex web application functionalities like multi-step forms, including:</p>
+<ul>
+<li><strong>Navigation and Interaction</strong>: Managing complex user flows through different stages of a form.</li>
+<li><strong>Advanced Assertions</strong>: Ensuring that each step is completed successfully and the final confirmation is received.</li>
+<li><strong>Network Requests</strong>: Intercepting and asserting on network requests to validate backend processes like sending confirmation emails.</li>
+</ul>
+<p>This approach highlights Cypress's ability to handle sophisticated end-to-end tests, providing real-time feedback and robust debugging capabilities. It showcases how effectively Cypress integrates into modern web development workflows, making it a powerful tool for ensuring application reliability and user satisfaction.</p>
+</details>
+<h3 id="other-considerations">Other Considerations</h3>
+<p>While Cypress's rapid adoption in the developer community and its extensive plugin ecosystem offer substantial advantages, there are several considerations that teams should evaluate before choosing it as their primary testing tool:</p>
+<ol>
+<li>
+<p><strong>Single Language Support</strong>: Cypress is built exclusively for JavaScript. This tight integration allows for robust features and an intuitive testing experience for JavaScript developers. However, this can also be a limitation for teams working in multi-language environments or those that prefer using languages like Python, Ruby, or Java for their testing frameworks. Teams should consider their project's language alignment and developer expertise when choosing a testing tool (Cypress.io, 2024).</p>
+</li>
+<li>
+<p><strong>Specific Browser Compatibility</strong>: Cypress supports testing in Chrome, Firefox, Edge, and Brave directly. While this covers a significant portion of web users, the lack of support for browsers like Safari or Internet Explorer might be a constraint for projects requiring broad browser compatibility, especially those targeting diverse user demographics or corporate environments still using older browsers (Cypress.io, 2024).</p>
+</li>
+<li>
+<p><strong>Community and Documentation</strong>:</p>
+<ul>
+<li><strong>Robust Community and Resources</strong>: Cypress benefits from a strong and active community. Its extensive documentation, active forums, and numerous plugins enhance its functionality and ease of use. This strong community support is invaluable for troubleshooting, sharing best practices, and continuous learning, making Cypress a top choice for teams that value community engagement.</li>
+<li><strong>Plugin Ecosystem</strong>: The availability of a wide range of plugins can extend Cypress's capabilities beyond basic testing scenarios. These plugins include integrations for accessibility testing, visual regression testing, and more, allowing teams to adapt the tool to their specific needs (Cypress.io Documentation, 2024).</li>
+</ul>
+</li>
+<li>
+<p><strong>Performance and Real-Time Testing</strong>:</p>
+<ul>
+<li><strong>Fast Execution Within the Browser</strong>: Because Cypress tests run in the same loop as the application, test execution is generally faster and less prone to synchronisation issues compared to tools that operate outside the browser. This can lead to more efficient test cycles, especially during development phases.</li>
+<li><strong>Real-Time Feedback</strong>: The Cypress Test Runner provides visual feedback and step-by-step test execution, which is a significant advantage during test development and debugging. Developers can see exactly what happens at each step of their test and quickly identify where things go wrong (Cypress.io, 2024).</li>
+</ul>
+</li>
+<li>
+<p><strong>Architectural Considerations</strong>:</p>
+<ul>
+<li><strong>Native Access to Application Code</strong>: Cypress operates within the application context, allowing for deeper integration with the application being tested. This native access facilitates more complex interactions and state management within tests, providing a more thorough testing experience.</li>
+<li><strong>Test Isolation and Control</strong>: While Cypress provides excellent control over test execution and environment setup, its model of clearing the state between tests ensures test independence and reliability. However, managing state across tests can sometimes require additional setup or use of workarounds, particularly for complex state persistence scenarios.</li>
+</ul>
+</li>
+<li>
+<p><strong>Ease of Integration</strong>: Cypress is straightforward to integrate into existing JavaScript projects and plays well with various build systems and CI/CD pipelines. However, teams need to consider the integration overhead if they are migrating from another testing framework or integrating with non-JavaScript parts of their tech stack (Cypress.io, 2024).</p>
+</li>
+</ol>
+<p>These considerations should be weighed carefully against the specific requirements and constraints of a project to determine if Cypress is the most suitable testing tool for its needs. It excels in environments that can leverage its strengths—JavaScript-centric development, need for rapid testing feedback, and robust community support—but might present challenges in more diverse tech ecosystems or where extensive cross-browser testing is crucial.</p>
+<h3 id="recommendation">Recommendation</h3>
+<p>Cypress is highly recommended for teams engaged in developing interactive, dynamic web applications, particularly those using modern JavaScript frameworks such as React, Angular, or Vue. It is especially beneficial for projects that prioritise rapid development cycles and high-quality user interfaces.</p>
+<h2 id="presentation-slides-cypress-presentation">Presentation Slides: <a href="https://docs.google.com/presentation/d/1OJ3w1Cg5ZIx3QzN5xrCNtzn1N7iBUIDgB34kDIbDSPk/edit?usp=sharing">Cypress Presentation</a></h2>
+<h3 id="comparative-analysis-with-rivals">Comparative Analysis with Rivals</h3>
+<details>
+  <summary><strong>NOTE: This analysis was discussed in the presentation and provided here for informational purposes only.</strong></summary>
+<table>
+<thead>
+<tr>
+<th>Feature/Tool</th>
+<th>Cypress</th>
+<th>Selenium</th>
+<th>Puppeteer</th>
+<th>Playwright</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Language Support</strong></td>
+<td>✔ (JavaScript)</td>
+<td>✔ (Multi-lang)</td>
+<td>✔ (JavaScript)</td>
+<td>✔ (Multi-lang)</td>
+</tr>
+<tr>
+<td><strong>Architecture</strong></td>
+<td>✔ (Internal)</td>
+<td>(External)</td>
+<td>(External)</td>
+<td>✔ (Internal)</td>
+</tr>
+<tr>
+<td><strong>Ease of Setup</strong></td>
+<td>✔</td>
+<td></td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+<tr>
+<td><strong>Execution Speed</strong></td>
+<td>✔</td>
+<td></td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+<tr>
+<td><strong>Browser Support</strong></td>
+<td></td>
+<td>✔</td>
+<td></td>
+<td>✔</td>
+</tr>
+<tr>
+<td><strong>Use Case</strong></td>
+<td>✔</td>
+<td></td>
+<td></td>
+<td>✔</td>
+</tr>
+<tr>
+<td><strong>Community and Ecosystem</strong></td>
+<td>✔</td>
+<td>✔</td>
+<td></td>
+<td>✔</td>
+</tr>
+<tr>
+<td><strong>Testing Capabilities</strong></td>
+<td></td>
+<td>✔</td>
+<td></td>
+<td>✔</td>
+</tr>
+</tbody>
+</table>
+<h3 id="pros-and-cons-comparison">Pros and Cons Comparison</h3>
+<h4 id="cypress">Cypress</h4>
+<ul>
+<li><strong>Pros:</strong> Direct access to DOM, real-time test execution, simplified debugging.</li>
+<li><strong>Cons:</strong> Limited language and browser support, not suited for multi-domain management.</li>
+</ul>
+<h4 id="selenium">Selenium</h4>
+<ul>
+<li><strong>Pros:</strong> Supports multiple languages, extensive browser support, mature ecosystem.</li>
+<li><strong>Cons:</strong> Complex setup, slower execution.</li>
+</ul>
+<h4 id="puppeteer">Puppeteer</h4>
+<ul>
+<li><strong>Pros:</strong> Fast execution in Chrome, ideal for direct browser control tasks.</li>
+<li><strong>Cons:</strong> Limited to Chrome, not designed for cross-browser testing.</li>
+</ul>
+<h4 id="playwright">Playwright</h4>
+<ul>
+<li><strong>Pros:</strong> Supports multiple languages and browsers, fast and reliable execution.</li>
+<li><strong>Cons:</strong> Less mature than Selenium, smaller community.</li>
+</ul>
+</details>
+<h2 id="references">References</h2>
+<p>List all references used to prepare this report and presentation.</p>
+<ul>
+<li>Cypress.io. (2024). Retrieved from <a href="https://www.cypress.io/">https://www.cypress.io/</a></li>
+<li>Cypress.io. (2024). Cypress Documentation. Retrieved from <a href="https://docs.cypress.io">https://docs.cypress.io</a></li>
+<li>Cypress.io. (2024). How Cypress Works. Retrieved from <a href="https://www.cypress.io/how-it-works/">https://www.cypress.io/how-it-works/</a></li>
+<li>Cypress.io. (2024). JavaScript End to End Testing Framework. Retrieved from <a href="https://go.cypress.io/get-started">https://go.cypress.io/get-started</a></li>
+</ul>
+
+</body>
+</html>

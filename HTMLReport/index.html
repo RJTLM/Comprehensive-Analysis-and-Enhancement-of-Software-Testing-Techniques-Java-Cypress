@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Software Engineering Testing - Group Assignment</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/remarkable/dist/remarkable.min.js"></script> <!-- Correct link to Remarkable -->
+</head>
+<body>
+    <header>
+        <h1>CMPE3008 Software Engineering Testing - Group Assignment</h1>
+    </header>
+    <main id="content">
+        <!-- Markdown content will be loaded here dynamically -->
+    </main>
+    <footer>
+        <p>&copy; 2024 Predictive Pioneers</p>
+    </footer>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM fully loaded and parsed');
+            loadPage('content.md');
+        });
+
+        function loadPage(page) {
+            fetch(page)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.text();
+                })
+                .then(markdown => {
+                    var md = new Remarkable();
+                    var htmlContent = md.render(markdown);
+                    document.getElementById('content').innerHTML = htmlContent;
+                })
+                .catch(error => console.error('Error loading page:', error));
+        }
+    </script>
+</body>
+</html>
