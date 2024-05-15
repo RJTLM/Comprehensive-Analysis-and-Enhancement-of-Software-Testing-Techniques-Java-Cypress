@@ -432,7 +432,7 @@ Its possible for the infection to be present without propagation being satisfied
 
 As an **example:**
 
-`[3,2,1,2,1,2,1,2,1,2,2,5,4]` will weakly kill;
+`[3,2,1,2,1,2,1,2,1,2,2,5,4]` will weakly kill.
 
 `[10,9,8,7,6,5,4,3,2,1]` will strongly kill the mutant.
 
@@ -452,7 +452,7 @@ Similair to mutant one an empty array, array that is null and arrays of 1 will l
 
 As an **example:**
 
-`[3,2,1]` will weakly kill the mutant;
+`[3,2,1]` will weakly kill the mutant.
 
 `[1,2,1]` will strongly kill the mutant.
 
@@ -472,7 +472,7 @@ The array will now end up being in descending order instead of ascending order i
 
 As an **example:**
 
-`[1,1,1]` will weakly kill the mutant;
+`[1,1,1]` will weakly kill the mutant.
 
 `[7,1,7,20,-5]` will strongly kill the mutant.
 
@@ -500,20 +500,20 @@ If the array has more than one element the code will enter the for loop and reac
 
 **Infection:**
 
-Deletion of the while loop leads to ArrayIndexOutOfBoundsException, because without checking the condition j > 0, decrementing j will lead to trying to access:  arr[-1], which is an invalid index  
+Deletion of the while loop leads to `ArrayIndexOutOfBoundsException`, because without checking the condition j > 0, decrementing j will lead to trying to access:  arr[-1], which is an invalid index.
 
 **Propagation:**
 
 The program crashed due to an unhandled condition:
-<<java.lang.ArrayIndexOutOfBoundsException: Index -1 out of bounds for length 10>>
+<<java.lang.ArrayIndexOutOfBoundsException: Index -1 out of bounds for length 10>>.
 
-The mutant 1 results in ‘ArrayIndexOutOfBoundsException’ because the loop may try to access arr[j-1]. When deleting the while loop, there is no boundary check from the deleted condition causing the j to go past index 0, leading to trying to access an index of array that doesn't exist. The test harness in the source code doesn’t explicitly handle this exception. If mutants are active, the code will crash due to unhandled exceptions. The test case from the source doesn’t assert or expect any exceptions.
+The mutant 1 results in `ArrayIndexOutOfBoundsException` because the loop may try to access arr[j-1]. When deleting the while loop, there is no boundary check from the deleted condition causing the j to go past index 0, leading to trying to access an index of array that doesn't exist. The test harness in the source code doesn’t explicitly handle this exception. If mutants are active, the code will crash due to unhandled exceptions. The test case from the source doesn’t assert or expect any exceptions.
 
 **Mutant 2:** Bomb Statement Replacement
 
 **Reachability:**
 
-If condition j ==1 should be met for the bomb() simulation to be executed, if the second element is less than the first element and the array is not sorted.
+If condition j ==1 should be met for the `bomb()` simulation to be executed, if the second element is less than the first element and the array is not sorted.
 
 **Infection:**
 
@@ -522,7 +522,7 @@ If condition j == 1 is met during sorting it will trigger (‘RuntimeException�
 **Propagation:**
 
 The program crashed due to an unhandled condition:
-java.lang.RuntimeException: bomb trigger
+java.lang.RuntimeException: bomb trigger.
 
 The test array is: << final Integer[] data = { 4, 3, 0, 11, 7, 5, 15, 12, 99, 1 } >> the condition j==1 will be reached, which leads to execution of Bomb(). The test case will fail as it doesn't have any exceptions.
 
@@ -530,7 +530,7 @@ The test array is: << final Integer[] data = { 4, 3, 0, 11, 7, 5, 15, 12, 99, 1 
 
 **Reachability:**
 
-Always reached if array is not empty or null
+Always reached if array is not empty or null.
 
 **Infection:**
 
@@ -540,13 +540,13 @@ When j = 0 this leads to the condition arr[j-1] to access index -1 instead of pa
 
 This leads to the program crashing due to an unhandled exception: <<java.lang.ArrayIndexOutOfBoundsException: Index -1 out of bounds for length 10>> as an example.
 
-Mutant 3 results in 'ArrayIndexOutOfBoundsException' because of the loop trying to access arr[j-1] which will be the index -1. As there is no implemented exception handling for the method the program doesn't gracefully handle these.
+Mutant 3 results in `ArrayIndexOutOfBoundsException` because of the loop trying to access arr[j-1] which will be the index -1. As there is no implemented exception handling for the method the program doesn't gracefully handle these.
 
 **Mutant 4:** Arithmetic Operator Replacement
 
 **Reachability:**
 
-In all scenarios will the mutant be reached as the for loop is the first line in the method
+In all scenarios will the mutant be reached as the for loop is the first line in the method.
 
 **Infection:**
 
@@ -562,13 +562,11 @@ The mutant leads to a wrong output, only every second element is being sorted.
 
 ## Test Method Analysis (5 Marks)
 
-Evaluate the existing test methods against the mutants created and provide an opinion on the sufficiency of the tests.
-
 ### Analysis for Test Method 1: BubbleSort
 
 **Observations:**
 
-The test method that was chosen is ‘testBubbleSort()’ this test method initialises an array of unsorted Integers that is then passed to method to be sorted and then compare to see that the results match the defined sorted order. The test data is `[4,3,0,11,7,5,15,12,99,1]` with an expected result of `[0,1,3,4,5,7,11,12,15,99]`. The test data under the mutation testing strongly kills mutants 1,2 and 4 and the third mutant remains undetected due to the fact it is an equivalent mutant.
+The test method that was chosen is `testBubbleSort()’` this test method initialises an array of unsorted Integers that is then passed to method to be sorted and then compare to see that the results match the defined sorted order. The test data is `[4,3,0,11,7,5,15,12,99,1]` with an expected result of `[0,1,3,4,5,7,11,12,15,99]`. The test data under the mutation testing strongly kills mutants 1,2 and 4 and the third mutant remains undetected due to the fact it is an equivalent mutant.
 
 **Sufficiency of Testing:**
 
@@ -591,7 +589,7 @@ Exception handling should include:
 
 - i) Null Elements in Array: Handling null values correctly to either sort them to the beginning or end based on defined behavior, or throw an informative exception.
 
-- ii) Single Element Array and Empty Array, e.g. if(arr== null) OR (arr.length<=1)
+- ii) Single Element Array and Empty Array, e.g. if(arr== null) OR (arr.length<=1).
 
 - iii) Handling Non-Comparable Data: to prevent runtime exceptions when elements are not comparable.
 
@@ -775,9 +773,9 @@ Cypress is highly recommended for teams engaged in developing interactive, dynam
 
 ## References
 
-List all references used to prepare this report and presentation.
-
 - Cypress.io. (2024). Retrieved from <https://www.cypress.io/>
 - Cypress.io. (2024). Cypress Documentation. Retrieved from <https://docs.cypress.io>
 - Cypress.io. (2024). How Cypress Works. Retrieved from <https://www.cypress.io/how-it-works/>
 - Cypress.io. (2024). JavaScript End to End Testing Framework. Retrieved from <https://go.cypress.io/get-started>
+
+APA 7th Edition.
