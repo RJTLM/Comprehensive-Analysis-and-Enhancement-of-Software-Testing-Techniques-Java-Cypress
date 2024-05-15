@@ -20,11 +20,10 @@
 
 ### Chosen Methods
 
-Describe the chosen methods here, including why they were selected based on the assignment criteria.
+We chose two sorting algorithms from the "sorting-algorithms by murraco" repository: Bubble Sort and Insertion Sort. We chose to focus on these algorithms because they both contain nested loops, and are complex enough to demonstrate the requirements of the task without being too simple or too complex.
 
 #### Method 1: Bubble Sort
 
-- **Description:** [Brief description of what this method does]
 - **Source File Location:** [src/main/java/murraco/BubbleSort.java](https://github.com/murraco/sorting-algorithms/blob/master/src/main/java/murraco/BubbleSort.java)
 
   <details>
@@ -123,7 +122,6 @@ Describe the chosen methods here, including why they were selected based on the 
 
 #### Method 2: Insertion Sort
 
-- **Description:** [Brief description of what this method does]
 - **Source File Location:** [src/main/java/murraco/InsertionSort.java](https://github.com/murraco/sorting-algorithms/blob/master/src/main/java/murraco/InsertionSort.java)
 
   <details>
@@ -236,8 +234,6 @@ Include diagrams and descriptions of the converted method graphs here.
 ![InsertionSort Graph Image](Content\Graph_Insertion_Sort.png)
 
 ### Prime Path Coverage (10 Marks)
-
-Discuss your prime path coverage analysis for each method.
 
 ## Method 1: BubbleSort Test Coverage Analysis
 
@@ -417,8 +413,6 @@ Discuss your prime path coverage analysis for each method.
 | [1,2,3,5,1,2,3,5,1,2,3,4,3,5,1,2,3,5,1,6]| [2,3,5,1,6],[4,3,5,1,2],[2,3,5,1,2],[1,2,3,5,1],[5,1,2,3,5],[5,1,2,3,4],[,3,5,1,2,3],[3,4,3]|
 
 ### Syntax-Based Testing Analysis (10 Marks)
-
-Discuss the creation of mutants, mutation operators used, and the analysis of Reachability, Infection, and Propagation conditions.
 
 #### Mutants for Method 1: BubbleSort
 
