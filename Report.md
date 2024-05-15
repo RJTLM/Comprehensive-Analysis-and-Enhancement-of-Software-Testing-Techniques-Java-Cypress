@@ -518,17 +518,16 @@ public class InsertionSort {
 
   public static <T extends Comparable<T>> void insertionSort(T[] arr) {
     for (int i = 0; i < arr.length; i++) {
-  ∆4 //  for (int i = 0; i < arr.length; i+=2) // arithmetic operator insertion
+  ∆4   //  for (int i = 0; i < arr.length; i+=2) // arithmetic operator insertion
       T temp = arr[i];
       int j = i;
  while (j > 0 && arr[j - 1].compareTo(temp) > 0) {
-   ∆1 // while (j > 0 && arr[j - 1].compareTo(temp) > 0) // delete the condition  
+   ∆1   // while (j > 0 && arr[j - 1].compareTo(temp) > 0) // delete the condition  
 {
-   ∆2   if (j == 1) { throw new RuntimeException("bomb trigger");
+   ∆2   if (j == 1) { throw new RuntimeException("bomb trigger"); // Specific condition to trigger the bomb
 }
    ∆3   // while (j >= 0 && arr[j - 1].compareTo(temp) > 0) // arithmetic operator insertion  
 {
-// Specific condition to trigger the bomb
         arr[j] = arr[j - 1];
         j--;
       }
