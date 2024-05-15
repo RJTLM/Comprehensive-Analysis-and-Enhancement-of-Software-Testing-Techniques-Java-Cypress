@@ -523,7 +523,7 @@ If condition j ==1 should be met for the bomb() simulation to be executed, if th
 
 **Infection:**
 
-If condition j == 1 is met during sorting it will trigger (‘RuntimeException’)
+If condition j == 1 is met during sorting it will trigger (‘RuntimeException’).
 
 **Propagation:**
 
@@ -546,21 +546,25 @@ When j = 0 this leads to the condition arr[j-1] to access index -1 instead of pa
 
 This leads to the program crashing due to an unhandled exception: <<java.lang.ArrayIndexOutOfBoundsException: Index -1 out of bounds for length 10>> as an example.
 
-Mutant 3 results in 'ArrayIndexOutOfBoundsException' because of the loop trying to access arr[j-1] which will be the index -1. As there is no implemented exception handling for the method the program doesn't gracefully handle these
+Mutant 3 results in 'ArrayIndexOutOfBoundsException' because of the loop trying to access arr[j-1] which will be the index -1. As there is no implemented exception handling for the method the program doesn't gracefully handle these.
 
-**Mutant 4:** []
+**Mutant 4:** Arithmetic Operator Replacement
 
 **Reachability:**
 
-Text here
+The mutant will always be reached if the array is not null or empty.
 
 **Infection:**
 
-Text here
+In the for loop i++ is being replaced with i+=2.
 
 **Propagation:**
 
-Text here
+The mutant leads to a wrong output, only every second element is being sorted.
+
+- Test data: `[0,4,3,7,11,5,15,12,99,1]`
+- Expected result: `[0,1,3,4,5,7,11,12,15,99]`
+- Actual result: `[0,4,3,7,11,5,15,12,99,1]`
 
 ## Test Method Analysis (5 Marks)
 
