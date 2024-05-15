@@ -524,8 +524,6 @@ If condition j == 1 is met during sorting it will trigger (â€˜RuntimeExceptionâ€
 The program crashed due to an unhandled condition:
 java.lang.RuntimeException: bomb trigger.
 
-The test array is: << final Integer[] data = { 4, 3, 0, 11, 7, 5, 15, 12, 99, 1 } >> the condition j==1 will be reached, which leads to execution of Bomb(). The test case will fail as it doesn't have any exceptions.
-
 **Mutant 3:** Relational Operator Replacement
 
 **Reachability:**
@@ -576,7 +574,7 @@ Overall, the test suite effectively evaluates the sorting methods validity by us
 
 **Observations:**
 
-For the Insertion Sort method we tested the effects of four differnt mutants to ensure that the selected test harness is utilising strong test cases to make sure that no defects are present in the code. From this we can see that the test harness doesn't accurately handle exceptions which can be detrimental in more complex code bases.Mutants 1 and three both result in an a array index out of bounds error with mutant 2 causing a run time exception, these exceptions are not handled by any try catch method and thus lead to the program ending prematurely. Mutant 4 leads to an result where very second element is sorted cuasing the actual not to match the expected result.
+For the Insertion Sort method we tested the effects of four differnt mutants to ensure that the selected test harness is utilising strong test cases to make sure that no defects are present in the code. From this we can see that the test harness doesn't accurately handle exceptions which can be detrimental in more complex code bases. Mutants 1 and three both result in an a array index out of bounds error with mutant 2 causing a run time exception, these exceptions are not handled by any try catch method and thus lead to the program ending prematurely. Mutant 4 leads to a result where very second element is sorted causing the actual not to match the expected result.
 
 **Sufficiency of Testing:**
 
